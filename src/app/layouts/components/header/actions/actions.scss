@@ -1,0 +1,49 @@
+@use "styles/functions" as *;
+@use "styles/mixins" as *;
+@use "styles/media" as *;
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: rem(12);
+
+  &__search {
+    display: inline-flex;
+    padding: 0;
+    border-radius: 50%;
+    outline: none;
+
+    @include mobile-above {
+      display: none;
+    }
+
+    @include interactive {
+      color: var(--color-gray-alt);
+    }
+  }
+
+  &__link {
+    display: inline-flex;
+    flex: 0 0 auto;
+
+    @include interactive {
+      color: var(--color-gray-alt);
+      filter: contrast(0.5);
+    }
+
+    @include mobile-s-above {
+      padding: rem(4);
+    }
+
+    &--active {
+      color: var(--color-dark-alt);
+      filter: contrast(0.1);
+      pointer-events: none;
+    }
+  }
+
+  &__icon {
+    box-sizing: content-box;
+    color: inherit;
+  }
+}

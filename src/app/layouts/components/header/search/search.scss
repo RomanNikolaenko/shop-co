@@ -1,0 +1,105 @@
+@use "styles/mixins" as *;
+@use "styles/functions" as *;
+@use "styles/media" as *;
+
+.search {
+  display: flex;
+  flex-direction: column;
+
+  @include mobile {
+    block-size: 100%;
+  }
+
+  &__inner {
+    position: relative;
+  }
+
+  &__form {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    border: rem(1) solid var(--color-gray);
+    border-radius: 100vmax;
+    background-color: var(--color-gray);
+    transition: border var(--transition-duration)
+      var(--transition-timing-function);
+    overflow: hidden;
+
+    @include mobile {
+      border-radius: 0;
+    }
+
+    &:focus-within {
+      border-color: var(--color-dark);
+    }
+  }
+
+  &__btn {
+    display: inline-flex;
+    padding: rem(8);
+    border-radius: 50%;
+    outline: none;
+    color: var(--color-gray-alt);
+
+    &:not([disabled]) {
+      @include interactive {
+        color: var(--color-dark);
+      }
+    }
+
+    &--disabled {
+      cursor: not-allowed;
+    }
+  }
+
+  &__submit {
+    margin-inline: rem(12) rem(4);
+  }
+
+  &__clear {
+    margin-inline: rem(4) rem(12);
+  }
+
+  &__btn-icon {
+    box-sizing: content-box;
+  }
+
+  &__input {
+    flex: 1 1 auto;
+    block-size: rem(48);
+    inline-size: 100%;
+    min-inline-size: 0;
+    padding-inline-end: rem(12);
+    outline: none;
+  }
+
+  &__results {
+    position: absolute;
+    inset-block-start: 100%;
+    inset-inline-start: 0;
+    inline-size: 100%;
+    padding: rem(20);
+    border: rem(1) solid var(--color-gray);
+    border-radius: rem(28) rem(28) rem(20) rem(20);
+    background-color: var(--color-gray);
+
+    @include mobile {
+      border-radius: 0 0 rem(20) rem(20);
+    }
+  }
+
+  &__results-wrap {
+    overflow-y: auto;
+    max-block-size: min(rem(300), 70vh);
+    margin-block-start: rem(8);
+    padding-block: rem(8) rem(12);
+    border-block-start: rem(1) solid var(--color-dark);
+    word-wrap: break-word;
+  }
+
+  &__results-list {
+    display: grid;
+    gap: rem(12);
+  }
+}

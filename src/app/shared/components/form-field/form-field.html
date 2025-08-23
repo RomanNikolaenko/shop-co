@@ -1,0 +1,61 @@
+<fieldset class="field">
+  <div class="field__wrap">
+    @if (typeInput === "input") {
+      <label [ngClass]="containerClasses" class="field__label label-field">
+        <input
+          [(ngModel)]="value"
+          (ngModelChange)="onChange($event)"
+          (blur)="onTouch()"
+          [type]="typeInputPswrd ? type : 'text'"
+          [attr.name]="name"
+          autocomplete="off"
+          class="label-field__input"
+        />
+        <span class="label-field__title">{{ label }}</span>
+      </label>
+    } @else if (typeInput === "message") {
+      <label
+        [ngClass]="containerClasses"
+        class="field__label label-field label-field--textarea"
+      >
+        <textarea
+          [(ngModel)]="value"
+          (ngModelChange)="onChange($event)"
+          (blur)="onTouch()"
+          type="text"
+          [attr.name]="name"
+          autocomplete="off"
+          class="label-field__input"
+        ></textarea>
+        <span class="label-field__title">{{ label }}</span>
+      </label>
+    }
+
+    @if (type === "password") {
+      <button
+        (click)="typeInputPassword()"
+        type="button"
+        class="label-field__type"
+        attr.aria-label="{{ 'form.passwordAriaLabel' | translate }}"
+      >
+        <icon
+          [name]="typeInputPswrd ? 'eye' : 'eye-hide'"
+          role="img"
+          aria-hidden="true"
+        ></icon>
+      </button>
+    }
+  </div>
+
+  @if (errorKeys.length) {
+    <div class="field__errors">
+      @for (key of showAllErrors ? errorKeys : [errorKeys[0]]; track $index) {
+        <span>{{ getErrorMessage(key) }}</span>
+      }
+    </div>
+  }
+
+  @if (hint) {
+    <div class="field__hint">{{ hint }}</div>
+  }
+</fieldset>

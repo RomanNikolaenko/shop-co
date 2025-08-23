@@ -1,0 +1,41 @@
+<nav
+  (click)="onBackgroundClick($event)"
+  attr.aria-label="{{ 'header.ariaLabel' | translate }}"
+  class="nav"
+>
+  <ul class="nav__list">
+    @if (!showLangSelect()) {
+      <li class="nav__item nav__item-select">
+        <select-langs />
+      </li>
+    }
+    <li class="nav__item">
+      @if (isAbout()) {
+        <span class="nav__link nav__link--active">
+          <span>About</span>
+        </span>
+      } @else {
+        <a
+          [routerLink]="[STATIC_ROUTES.ABOUT.RouterLink]"
+          routerLinkActive="nav__link--active"
+          class="nav__link text-decoration"
+          ><span>About</span></a
+        >
+      }
+    </li>
+    <li class="nav__item">
+      @if (isContact()) {
+        <span class="nav__link nav__link--active">
+          <span>Contact</span>
+        </span>
+      } @else {
+        <a
+          [routerLink]="[STATIC_ROUTES.CONTACTS.RouterLink]"
+          routerLinkActive="nav__link--active"
+          class="nav__link text-decoration"
+          ><span>Contact</span></a
+        >
+      }
+    </li>
+  </ul>
+</nav>

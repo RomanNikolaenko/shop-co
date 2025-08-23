@@ -1,0 +1,116 @@
+@use "styles/mixins" as *;
+@use "styles/functions" as *;
+@use "styles/media" as *;
+
+:host {
+  $width: rem(600);
+
+  display: grid;
+  container-type: inline-size;
+
+  @supports not (container-type: inline-size) {
+    @media (width > #{$width}) {
+      .form {
+        grid-template-areas:
+          "name email"
+          "message message"
+          "checkbox checkbox"
+          "btn btn";
+        grid-template-rows: auto auto auto auto;
+      }
+
+      .form__field {
+        &[name="name"] {
+          grid-area: name;
+        }
+
+        &[name="email"] {
+          grid-area: email;
+        }
+
+        &[name="message"] {
+          grid-area: message;
+        }
+      }
+
+      .form__checkbox {
+        grid-area: checkbox;
+      }
+
+      .form__submit {
+        grid-area: btn;
+      }
+    }
+  }
+
+  @supports (container-type: inline-size) {
+    @container (width > #{$width}) {
+      .form {
+        grid-template-areas:
+          "name email"
+          "message message"
+          "checkbox checkbox"
+          "btn btn";
+        grid-template-rows: auto auto auto auto;
+      }
+
+      .form__field {
+        &[name="name"] {
+          grid-area: name;
+        }
+
+        &[name="email"] {
+          grid-area: email;
+        }
+
+        &[name="message"] {
+          grid-area: message;
+        }
+      }
+
+      .form__checkbox {
+        grid-area: checkbox;
+      }
+
+      .form__submit {
+        grid-area: btn;
+      }
+    }
+  }
+}
+
+.form {
+  display: grid;
+  gap: rem(20);
+
+  &__icon {
+    block-size: 100%;
+    inline-size: 100%;
+    opacity: 0;
+    transition: opacity var(--transition-duration)
+      var(--transition-timing-function);
+  }
+
+  &__svg {
+    display: flex;
+    block-size: rem(24);
+    border: rem(1) solid currentcolor;
+  }
+
+  &__label {
+    text-wrap: balance;
+  }
+
+  &__checkbox {
+    display: inline-flex;
+    align-items: center;
+    gap: rem(12);
+    inline-size: fit-content;
+
+    &:has(.form__input:checked) {
+      .form__icon {
+        opacity: 1;
+      }
+    }
+  }
+}

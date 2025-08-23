@@ -1,0 +1,51 @@
+@use "styles/functions" as *;
+@use "styles/mixins" as *;
+@use "styles/media" as *;
+
+.nav {
+  block-size: 100%;
+
+  &__list {
+    display: flex;
+    gap: rem(16);
+
+    @include tablet-above {
+      align-items: center;
+      gap: rem(24);
+    }
+
+    @include tablet {
+      flex-direction: column;
+      block-size: 100%;
+      inline-size: min(100%, rem(320));
+      box-shadow: 0 0 rem(8) rgb(0 0 0 / 10%);
+      padding-block: rem(34);
+      padding-inline: rem(20);
+      background-color: var(--color-light);
+      overflow-y: auto;
+    }
+  }
+
+  &__item-select {
+    padding-block-end: rem(24);
+    border-block-end: rem(1) solid var(--color-gray-alt);
+  }
+
+  &__link {
+    user-select: none;
+
+    @include tablet {
+      padding-block: rem(4);
+      font-size: rem(20);
+    }
+
+    &--active {
+      span {
+        background-image: linear-gradient(to right, currentcolor, currentcolor);
+        background-repeat: no-repeat;
+        background-position: left bottom;
+        background-size: 100% rem(2);
+      }
+    }
+  }
+}

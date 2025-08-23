@@ -1,0 +1,25 @@
+@use "styles/mixins" as *;
+
+.logo {
+  display: flex;
+  align-items: center;
+
+  &__link {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+
+    &:where([href]) {
+      @include interactive {
+        color: var(--color-gray-alt);
+      }
+    }
+  }
+
+  &__icon {
+    display: inline-flex;
+    inline-size: 100%;
+    height: auto;
+    color: inherit;
+  }
+}

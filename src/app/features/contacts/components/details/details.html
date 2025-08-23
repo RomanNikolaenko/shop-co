@@ -1,0 +1,50 @@
+<ul class="details">
+  @for (item of data; track $index) {
+    @if (item.linked === "phone") {
+      <li class="details__item">
+        <icon class="details__icon" name="call" role="img" aria-hidden="true" />
+        <div class="details__info">
+          <h2 class="details__title">{{ item.title }}</h2>
+          <a
+            href="tel:{{ cleanPhone(item.link) }}"
+            target="_blank"
+            rel="nofollow"
+            class="details__link details__link-ellipsis text-decoration"
+          >
+            <span>{{ item.link }}</span>
+          </a>
+        </div>
+      </li>
+    }
+    @if (item.linked === "mail") {
+      <li class="details__item">
+        <icon class="details__icon" name="mail" role="img" aria-hidden="true" />
+        <div class="details__info">
+          <h2 class="details__title">{{ item.title }}</h2>
+          <a
+            href="mailto:{{ item.link }}"
+            target="_blank"
+            rel="nofollow"
+            class="details__link details__link-ellipsis text-decoration"
+          >
+            <span>{{ item.link }}</span>
+          </a>
+        </div>
+      </li>
+    }
+    @if (item.linked === false) {
+      <li class="details__item">
+        <icon
+          class="details__icon"
+          name="location"
+          role="img"
+          aria-hidden="true"
+        />
+        <div class="details__info">
+          <h2 class="details__title">{{ item.title }}</h2>
+          <span class="details__link">{{ item.link }}</span>
+        </div>
+      </li>
+    }
+  }
+</ul>

@@ -1,0 +1,37 @@
+@use "styles/functions" as *;
+@use "styles/media" as *;
+
+:host {
+  position: relative;
+}
+
+.map {
+  overflow: hidden;
+  
+  @include tablet-above {
+    position: absolute;
+    inset: 0;
+    max-block-size: 100%;
+  }
+
+  &__wrap {
+    position: absolute;
+
+    &.map-lock {
+      z-index: 10;
+      inset: 0;
+      background-color: var(--color-gray-alt);
+      opacity: 0.6;
+    }
+  }
+
+  &__container {
+    z-index: 1;
+    block-size: 100%;
+    inline-size: 100%;
+
+    @include tablet {
+      block-size: rem(400);
+    }
+  }
+}

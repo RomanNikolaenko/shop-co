@@ -1,0 +1,134 @@
+@use "styles/mixins" as *;
+@use "styles/functions" as *;
+
+:host {
+  inline-size: 100%;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: rem(8);
+  inline-size: 100%;
+
+  &__wrap {
+    position: relative;
+    inline-size: 100%;
+  }
+
+  &__errors {
+    display: grid;
+    gap: rem(4);
+    inline-size: 100%;
+    font-size: rem(13);
+    line-height: 1.1;
+    color: var(--error);
+  }
+
+  &__hint {
+    inline-size: 100%;
+    font-size: rem(13);
+    text-indent: rem(14);
+  }
+}
+
+.label-field {
+  position: relative;
+  display: flex;
+  align-items: center;
+  inline-size: 100%;
+  transition: all var(--transition-duration) var(--transition-timing-function);
+
+  &:not(.label-field--textarea) {
+    @include fluid("block-size", 56, 50, 1024);
+  }
+
+  &--textarea {
+    block-size: 100%;
+  }
+
+  &__title {
+    position: absolute;
+    inset-inline-start: rem(12);
+    color: inherit;
+    pointer-events: none;
+    transition: all var(--transition-duration) var(--transition-timing-function);
+    will-change: transform;
+    transform: translateY(-50%) scale(1);
+    transform-origin: left top;
+
+    @include fluid("inset-block-start", 28, 25, 1024);
+
+    .label-field__error & {
+      color: var(--error);
+    }
+
+    .label-field__success & {
+      color: var(--success);
+    }
+  }
+
+  &__input {
+    block-size: 100%;
+    inline-size: 100%;
+    padding-block: rem(16) rem(6);
+    padding-inline: rem(12);
+    border: rem(1) solid var(--color-dark);
+    border-radius: rem(12);
+    outline: none;
+    line-height: 1;
+    background-color: var(--color-light);
+
+    &:focus-visible,
+    .label-field__active & {
+      + .label-field__title {
+        transform: translateY(-100%) scale(0.7);
+      }
+    }
+
+    .label-field__success & {
+      border-color: var(--success);
+    }
+
+    .label-field__error & {
+      border-color: var(--error);
+      color: var(--error);
+    }
+
+    .label-field--textarea & {
+      min-block-size: rem(150);
+      padding-block: rem(32);
+      resize: vertical;
+      transition: border-color var(--transition-duration)
+        var(--transition-timing-function);
+    }
+
+    .label-field__padding & {
+      padding-block: rem(16) rem(6);
+      padding-inline: rem(12) rem(50);
+    }
+
+    @include interactive {
+      border-color: var(--color-gray);
+    }
+  }
+
+  &__type {
+    position: absolute;
+    top: 50%;
+    right: rem(8);
+    display: inline-flex;
+    padding: rem(4);
+    border: rem(1) solid var(--color-dark);
+    border-radius: rem(5);
+    outline: none;
+    background: none;
+    transform: translateY(-50%);
+
+    @include interactive {
+      border-color: var(--color-gray-alt);
+      color: var(--color-gray-alt);
+    }
+  }
+}

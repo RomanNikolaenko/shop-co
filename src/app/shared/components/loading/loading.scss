@@ -1,0 +1,36 @@
+@use "styles/functions" as *;
+
+.loading {
+  position: absolute;
+  z-index: 9999;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  block-size: 100%;
+  inline-size: 100%;
+  background-color: var(--color-light);
+
+  &__spinner {
+    block-size: rem(60);
+    inline-size: rem(60);
+    border: rem(8) solid var(--color-light);
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+    border-block-start: rem(8) solid var(--color-gray-alt);
+  }
+
+  &__full {
+    position: fixed;
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}

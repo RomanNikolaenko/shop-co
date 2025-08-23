@@ -1,0 +1,60 @@
+@use "styles/mixins" as *;
+@use "styles/functions" as *;
+@use "styles/media" as *;
+
+.main {
+  display: grid;
+  row-gap: rem(24);
+
+  @include fluid("column-gap", 115, 30, 1440, 768);
+  @include fluid("margin-block-start", 50, 40);
+  @include fluid("margin-block-end", 35, 25);
+
+  @include tablet-above {
+    grid-template-columns: rem(250) 1fr;
+  }
+
+  &__logo {
+    @include fluid("inline-size", 160, 140);
+  }
+
+  &__text {
+    text-wrap: balance;
+    color: var(--color-gray-alt);
+  }
+
+  &__aside {
+    display: grid;
+    align-content: flex-start;
+    gap: rem(24);
+  }
+
+  &__contacts {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    gap: rem(12);
+  }
+
+  &__link {
+    padding: rem(9);
+    border: rem(1) solid var(--color-gray-alt);
+    border-radius: 50%;
+    background-color: var(--color-light);
+
+    @include interactive {
+      border-color: var(--color-black);
+      color: var(--color-light);
+      background-color: var(--color-black);
+    }
+  }
+
+  &__accordion {
+    display: grid;
+    gap: rem(20);
+
+    @include mobile-s-above {
+      grid-template-columns: repeat(auto-fit, minmax(rem(150), 1fr));
+    }
+  }
+}

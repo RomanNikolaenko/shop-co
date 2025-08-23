@@ -1,0 +1,129 @@
+@use "styles/mixins" as *;
+@use "styles/functions" as *;
+@use "styles/media" as *;
+
+.user {
+  block-size: 100%;
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: rem(32);
+    block-size: 100%;
+
+    @include tablet-above {
+      display: grid;
+      grid-template-columns: 1.45fr 1fr;
+    }
+  }
+
+  &__bg {
+    display: none;
+
+    @include tablet-above {
+      display: block;
+      block-size: 100%;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: 100% auto;
+
+      &.login__bg {
+        background-image: url("../../../assets/images/auth/login@1x.webp");
+
+        @media (resolution >= 2dppx) {
+          background-image: url("../../../assets/images/auth/login@1x.webp");
+        }
+
+        @media (resolution >= 3dppx) {
+          background-image: url("../../../assets/images/auth/login@1x.webp");
+        }
+      }
+
+      &.register__bg {
+        background-image: url("../../../assets/images/auth/create@1x.webp");
+
+        @media (resolution >= 2dppx) {
+          background-image: url("../../../assets/images/auth/create@1x.webp");
+        }
+
+        @media (resolution >= 3dppx) {
+          background-image: url("../../../assets/images/auth/create@1x.webp");
+        }
+      }
+
+      &.forgot__bg {
+        background-image: url("../../../assets/images/auth/forgot@1x.webp");
+
+        @media (resolution >= 2dppx) {
+          background-image: url("../../../assets/images/auth/forgot@1x.webp");
+        }
+
+        @media (resolution >= 3dppx) {
+          background-image: url("../../../assets/images/auth/forgot@1x.webp");
+        }
+      }
+
+      &.otp__bg {
+        background-image: url("../../../assets/images/auth/otp@1x.webp");
+
+        @media (resolution >= 2dppx) {
+          background-image: url("../../../assets/images/auth/otp@1x.webp");
+        }
+
+        @media (resolution >= 3dppx) {
+          background-image: url("../../../assets/images/auth/otp@1x.webp");
+        }
+      }
+    }
+  }
+
+  &__wrap {
+    inline-size: 100%;
+    max-inline-size: rem(600);
+    padding-block: rem(24);
+  }
+
+  &__back {
+    display: inline-flex;
+    align-items: center;
+    gap: rem(8);
+    margin-block-end: rem(32);
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    @include fluid("gap", 24, 16, 1024);
+  }
+
+  &__title {
+    @include fluid("font-size", 30, 24, 1024);
+
+    margin-block-end: rem(4);
+    text-align: center;
+  }
+
+  &__subtitle {
+    @include fluid("font-size", 18, 16, 1024);
+
+    text-align: center;
+    text-wrap: balance;
+  }
+
+  &__account {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: rem(8);
+    text-align: center;
+  }
+
+  &__submit {
+    inline-size: 100%;
+  }
+}

@@ -1,0 +1,37 @@
+@use "styles/functions" as *;
+@use "styles/mixins" as *;
+
+.otp-container {
+  display: flex;
+  align-items: center;
+  gap: rem(12);
+}
+
+.otp-input {
+  @include fluid("inline-size", 60, 34, 1024);
+  @include fluid("block-size", 60, 34, 1024);
+  @include fluid("font-size", 24, 20, 1024);
+
+  border: rem(1) solid var(--color-dark);
+  border-radius: rem(10);
+  outline: none;
+  font-weight: 700;
+  text-align: center;
+
+  @include interactive {
+    border-color: var(--color-gray-alt);
+  }
+
+  &--error {
+    border-color: var(--error);
+  }
+}
+
+.otp-message {
+  display: grid;
+  gap: rem(4);
+  inline-size: 100%;
+  font-size: rem(13);
+  line-height: 1.1;
+  color: var(--error);
+}

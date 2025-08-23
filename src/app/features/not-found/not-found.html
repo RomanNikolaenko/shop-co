@@ -1,0 +1,20 @@
+<section class="error">
+  <div class="error__container">
+    <p class="error__404">404</p>
+
+    <h1 class="error__title">{{ "notFound.title" | translate }}</h1>
+
+    <a
+      [routerLink]="[STATIC_ROUTES.HOME.RouterLink]"
+      class="error__btn btn btn__black"
+    >
+      <span class="btn__text">{{ "button.goHome" | translate }}</span>
+    </a>
+
+    <div class="error__copyright">
+      Copyright
+      <time attr.datetime="{{ year | date: 'y' }}">{{ year | date: "y" }}</time
+      >. {{ "footer.reserved" | translate }}
+    </div>
+  </div>
+</section>

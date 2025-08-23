@@ -1,0 +1,78 @@
+@use "styles/functions" as *;
+@use "styles/mixins" as *;
+
+.select {
+  user-select: none;
+  position: relative;
+  display: inline-block;
+  inline-size: rem(80);
+  box-shadow: 0 0 rem(10) transparent;
+  border: rem(1) solid var(--color-dark);
+  outline: none;
+  font-family: inherit;
+  background-color: var(--color-light);
+  transition: box-shadow var(--transition-duration)
+    var(--transition-timing-function);
+
+  @include interactive {
+    box-shadow: 0 0 rem(10) var(--color-dark);
+  }
+
+  &__trigger {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: rem(8);
+    padding-block: rem(8);
+    padding-inline: rem(12);
+    cursor: pointer;
+  }
+
+  &__arrow {
+    flex: 0 0 auto;
+    block-size: rem(16);
+    inline-size: rem(16);
+    transition: transform var(--transition-duration)
+      var(--transition-timing-function);
+
+    &--open {
+      transform: rotate(180deg);
+    }
+  }
+
+  &__options {
+    position: absolute;
+    z-index: 10;
+    inset-block-start: 100%;
+    inset-inline-start: 0;
+    inline-size: 100%;
+    max-block-size: rem(200);
+    box-shadow: 0 rem(4) rem(6) var(--color-dark);
+    padding: 0;
+    border: rem(1) solid var(--color-dark);
+    background-color: var(--color-light);
+    list-style: none;
+    overflow-y: auto;
+  }
+
+  &__option {
+    padding-block: rem(8);
+    padding-inline: rem(12);
+    cursor: pointer;
+    transition:
+      background-color var(--transition-duration)
+        var(--transition-timing-function),
+      color var(--transition-duration) var(--transition-timing-function);
+
+    &:hover,
+    &--focused {
+      color: var(--color-light);
+      background-color: var(--color-dark);
+    }
+
+    &--selected {
+      font-weight: bold;
+      background-color: var(--color-gray-alt);
+    }
+  }
+}

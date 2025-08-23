@@ -1,9 +1,8 @@
-/* To learn more about Typescript configuration file: https://www.typescriptlang.org/docs/handbook/tsconfig-json.html. */
-/* To learn more about Angular compiler options: https://angular.dev/reference/configs/angular-compiler-options. */
 {
-  "compileOnSave": false,
+  "compileOnSave": true,
   "compilerOptions": {
     "strict": true,
+    "composite": true,
     "noImplicitOverride": true,
     "noPropertyAccessFromIndexSignature": true,
     "noImplicitReturns": true,
@@ -13,7 +12,34 @@
     "experimentalDecorators": true,
     "importHelpers": true,
     "target": "ES2022",
-    "module": "preserve"
+    "module": "preserve",
+    "baseUrl": "./src",
+    "paths": {
+      "^assets": ["./assets"],
+      "^assets/*": ["./assets/*"],
+      "^core": ["./app/core"],
+      "^core/*": ["./app/core/*"],
+      "^directives": ["./app/directives"],
+      "^directives/*": ["./app/directives/*"],
+      "^environments": ["./app/environments"],
+      "^environments/*": ["./app/environments/*"],
+      "^features": ["./app/features"],
+      "^features/*": ["./app/features/*"],
+      "^guards": ["./app/guards"],
+      "^guards/*": ["./app/guards/*"],
+      "^interceptors": ["./app/interceptors"],
+      "^interceptors/*": ["./app/interceptors/*"],
+      "^interfaces": ["./app/interfaces"],
+      "^interfaces/*": ["./app/interfaces/*"],
+      "^layouts": ["./app/layouts"],
+      "^layouts/*": ["./app/layouts/*"],
+      "^models": ["./app/models"],
+      "^models/*": ["./app/models/*"],
+      "^services": ["./app/services"],
+      "^services/*": ["./app/services/*"],
+      "^shared": ["./app/shared"],
+      "^shared/*": ["./app/shared/*"]
+    }
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
@@ -22,7 +48,8 @@
     "typeCheckHostBindings": true,
     "strictTemplates": true
   },
-  "files": [],
+  "include": ["src"],
+  "exclude": ["node_modules", "src/main.ts", "src/server.ts"],
   "references": [
     {
       "path": "./tsconfig.app.json"

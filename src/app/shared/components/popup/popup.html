@@ -1,0 +1,20 @@
+<div
+  class="popup-backdrop"
+  role="dialog"
+  aria-modal="true"
+  aria-labelledby="popup-title"
+  (click)="onBackdropClick($event)"
+  (touchstart)="onTouchStart($event)"
+  (touchend)="onTouchEnd($event)"
+  [@popupAnimation]="animationState()"
+>
+  <div class="popup" tabindex="-1" cdkTrapFocus cdkTrapFocusAutoCapture>
+    <header class="popup__header">
+      <h2 id="popup-title" class="visually-hidden">Popup</h2>
+      <button (click)="close()" class="popup__close" aria-label="Закрити попап">
+        <icon [name]="'close'" role="img" aria-hidden="true"></icon>
+      </button>
+    </header>
+    <ng-template #container></ng-template>
+  </div>
+</div>

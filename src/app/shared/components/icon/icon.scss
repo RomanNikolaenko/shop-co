@@ -1,0 +1,7 @@
+@use "styles/functions" as *;
+
+:host {
+  display: inline-block;
+  block-size: rem(24);
+  inline-size: rem(24);
+}

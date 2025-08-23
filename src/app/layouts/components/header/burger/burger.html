@@ -1,0 +1,15 @@
+<button
+  (click)="toggleMenu()"
+  [attr.aria-expanded]="showMenu()"
+  [ngClass]="containerClasses"
+  aria-controls="burger-menu"
+  class="burger"
+  type="button"
+>
+  <span class="visually-hidden">{{ "burger.open" | translate }}</span>
+  <span class="burger__icon">
+    <span class="burger__line top"></span>
+    <span class="burger__line middle"></span>
+    <span class="burger__line bottom"></span>
+  </span>
+</button>

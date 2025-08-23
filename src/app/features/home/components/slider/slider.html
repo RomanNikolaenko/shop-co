@@ -1,0 +1,59 @@
+<section class="customers">
+  <div class="customers__container container">
+    <h2 class="customers__title">{{ "customers.title" | translate }}</h2>
+
+    <div
+      class="customers__wrap"
+      role="region"
+      [attr.aria-label]="labels().containerLabel"
+    >
+      <button
+        type="button"
+        class="slider__prev slider__btn"
+        (click)="prevSlide()"
+        [attr.aria-label]="labels().prev"
+      >
+        <icon name="arrow-left" role="img" aria-hidden="true"></icon>
+      </button>
+
+      <button
+        type="button"
+        class="slider__next slider__btn"
+        (click)="nextSlide()"
+        [attr.aria-label]="labels().next"
+      >
+        <icon name="arrow-right" role="img" aria-hidden="true"></icon>
+      </button>
+
+      <swiper-container
+        #swiperRef
+        appSwiper
+        [config]="options()"
+        init="false"
+        class="slider"
+        [attr.aria-roledescription]="labels().containerDescription"
+      >
+        @for (slide of slides; track $index) {
+          <swiper-slide
+            class="slide"
+            role="group"
+            [attr.aria-roledescription]="labels().itemDescription"
+            [attr.aria-label]="labels().slideLabel($index, slides.length)"
+          >
+            <rating
+              [rating]="slide.rating"
+              [readonly]="true"
+              class="slide__rating"
+            />
+            <h3 class="slide__name">{{ slide.name }}</h3>
+            <p class="slide__text">{{ slide.text }}</p>
+          </swiper-slide>
+        }
+      </swiper-container>
+
+      <div class="visually-hidden" aria-live="polite" aria-atomic="true">
+        {{ currentSlideLabel() }}
+      </div>
+    </div>
+  </div>
+</section>

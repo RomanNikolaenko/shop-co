@@ -1,0 +1,85 @@
+@use "./functions" as *;
+
+@mixin fluid($property, $maxSize, $minSize, $maxWidth: 1440, $minWidth: 320) {
+  #{$property}: clamp(
+    #{($minSize / 16)}rem,
+    calc(
+      #{($minSize / 16)}rem + (#{$maxSize} - #{$minSize}) *
+        ((100vw - #{($minWidth / 16)}rem) / (#{$maxWidth} - #{$minWidth}))
+    ),
+    #{($maxSize / 16)}rem
+  );
+}
+
+@mixin interactive() {
+  @media (any-hover: hover) {
+    &:hover {
+      @content;
+    }
+  }
+
+  &:focus-visible,
+  &:active {
+    @content;
+  }
+}
+
+@mixin visually-hidden {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  margin: -1px !important;
+  border: 0 !important;
+  padding: 0 !important;
+  white-space: nowrap !important;
+  clip-path: inset(100%) !important;
+  clip: rect(0 0 0 0) !important;
+  overflow: hidden !important;
+}
+
+@mixin textDecoration() {
+  display: inline-block;
+  transition:
+    background-size var(--transition-duration) var(--transition-timing-function),
+    color var(--transition-duration) var(--transition-timing-function);
+
+  span {
+    background-image: linear-gradient(to right, currentColor, currentColor);
+    background-size: 0 rem(2);
+    background-position: right bottom;
+    background-repeat: no-repeat;
+    transition: inherit;
+    pointer-events: none;
+  }
+
+  @include interactive {
+    transition:
+      background-size 0.15s var(--transition-timing-function),
+      color 0.15s var(--transition-timing-function);
+    outline: none;
+
+    span {
+      color: currentColor;
+      background-position: left bottom;
+      background-size: 100% rem(2);
+    }
+  }
+}
+
+@mixin retina-bg($name, $ext: "webp", $path: "assets", $all: true) {
+  background-image: url("#{$path}/#{$name}@1x.#{$ext}");
+
+  @if ($all) {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  @media (min-resolution: 2dppx) {
+    background-image: url("#{$path}/#{$name}@2x.#{$ext}");
+  }
+
+  @media (min-resolution: 3dppx) {
+    background-image: url("#{$path}/#{$name}@3x.#{$ext}");
+  }
+}

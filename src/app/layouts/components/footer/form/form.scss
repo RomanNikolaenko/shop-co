@@ -1,0 +1,52 @@
+@use "styles/functions" as *;
+@use "styles/mixins" as *;
+@use "styles/media" as *;
+
+.form {
+  &__container {
+    position: relative;
+    display: grid;
+    gap: rem(32);
+    border-radius: rem(20);
+    background-color: var(--color-black);
+
+    @include fluid("padding-block", 34, 28);
+    @include fluid("padding-inline", 64, 20);
+
+    @include tablet-above {
+      align-items: center;
+      grid-template-columns: 1fr minmax(rem(270), rem(350));
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      inset-block-start: 0;
+      inset-inline-start: 50%;
+      block-size: 50%;
+      inline-size: 100vw;
+      background-color: var(--color-light);
+      transform: translateX(-50%);
+    }
+  }
+
+  &__title {
+    max-inline-size: rem(700);
+    font-weight: 700;
+    text-transform: uppercase;
+    text-wrap: balance;
+    color: var(--color-light);
+
+    @include fluid("font-size", 40, 24);
+
+    @include tablet {
+      text-align: center;
+    }
+  }
+
+  &__submit {
+    inline-size: 100%;
+    margin-block-start: rem(16);
+  }
+}

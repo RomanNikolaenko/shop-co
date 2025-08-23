@@ -1,0 +1,51 @@
+<article class="card" itemscope itemtype="https://schema.org/Product">
+  <a [routerLink]="data.url" class="card__image" tabindex="-1" itemprop="url">
+    <img
+      class="card__img"
+      [src]="data.src"
+      [srcset]="data.srcset"
+      [alt]="data.alt"
+      sizes="(max-width: 50rem) 12.5rem, 25vw"
+      width="295"
+      height="298"
+      loading="lazy"
+      decoding="async"
+      itemprop="image"
+    />
+  </a>
+
+  @if (data.save) {
+    <span class="card__save">{{ data.save }}%</span>
+  }
+
+  <div class="card__info">
+    <h2 class="card__title" itemprop="name">
+      <a
+        [routerLink]="data.url"
+        class="card__link text-decoration"
+        itemprop="url"
+      >
+        <span>{{ data.title }}</span>
+      </a>
+    </h2>
+
+    <rating [rating]="3" [readonly]="true" />
+
+    <div
+      class="card__currency"
+      itemprop="offers"
+      itemscope
+      itemtype="https://schema.org/Offer"
+    >
+      <meta itemprop="priceCurrency" content="UAH" />
+      <div class="card__price card__price-new">
+        ₴<span itemprop="price">{{ data.price.new }}</span>
+      </div>
+      @if (data.price.old) {
+        <div class="card__price card__price-old">
+          ₴<span>{{ data.price.old }}</span>
+        </div>
+      }
+    </div>
+  </div>
+</article>

@@ -1,0 +1,47 @@
+<section class="forgot user">
+  <div class="forgot__container user__container container">
+    <div class="forgot__bg user__bg"></div>
+    <div class="user__wrap">
+      <a
+        [routerLink]="[STATIC_ROUTES.USER.CH.LOGIN.RouterLink]"
+        class="user__back text-decoration"
+      >
+        <icon name="arrow-back" role="img" aria-hidden="true"></icon>
+        <span>{{ "button.back" | translate }}</span>
+      </a>
+
+      <form
+        class="forgot__form user__form"
+        [formGroup]="form"
+        (ngSubmit)="onSubmit()"
+      >
+        <div class="forgot__text user__text">
+          <h1 class="forgot__title user__title">
+            {{ "form.forgot.title" | translate }}
+          </h1>
+          <p class="forgot__subtitle user__subtitle">
+            {{ "form.forgot.text" | translate }}
+          </p>
+        </div>
+
+        <form-field
+          [data]="form.get('email')!"
+          formControlName="email"
+          name="email"
+          label="{{ 'form.email' | translate }}"
+          type="email"
+          class="user__field"
+        ></form-field>
+
+        <button
+          [disabled]="form.invalid || loading"
+          [ngClass]="containerClasses"
+          class="user__submit btn btn__black"
+          type="submit"
+        >
+          <span class="btn__text">{{ "button.send" | translate }}</span>
+        </button>
+      </form>
+    </div>
+  </div>
+</section>

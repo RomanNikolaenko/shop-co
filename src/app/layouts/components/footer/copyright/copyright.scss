@@ -1,0 +1,43 @@
+@use "styles/mixins" as *;
+@use "styles/functions" as *;
+@use "styles/media" as *;
+
+.copyright {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: rem(12) rem(20);
+  padding-block-start: rem(16);
+  border-block-start: rem(1) solid var(--color-gray-alt);
+
+  @include fluid("padding-block-end", 60, 40);
+
+  @include mobile-above {
+    justify-content: space-between;
+  }
+
+  &__payments {
+    display: flex;
+    gap: rem(12);
+
+    @include mobile-s {
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+  }
+
+  &__text {
+    text-align: center;
+    text-wrap: balance;
+  }
+
+  &__logo {
+    user-select: none;
+    inline-size: fit-content;
+    max-block-size: rem(36);
+    padding: rem(8);
+    border-radius: rem(6);
+    background-color: var(--color-light);
+  }
+}

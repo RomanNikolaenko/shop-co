@@ -1,0 +1,18 @@
+<div class="success">
+  <div class="success__icon">
+    <icon class="success__svg" name="done" role="img" aria-hidden="true"></icon>
+  </div>
+
+  <h1 class="success__title">{{ "form.otp.success.title" | translate }}</h1>
+  <p class="success__text">{{ "form.otp.success.text" | translate }}</p>
+
+  <a
+    [routerLink]="[STATIC_ROUTES.USER.CH.LOGIN.RouterLink]"
+    (click)="closePopup()"
+    class="success__btn btn btn__black"
+  >
+    <span class="btn__text">{{
+      "form.otp.success.buttonText" | translate
+    }}</span>
+  </a>
+</div>

@@ -1,0 +1,63 @@
+@use "styles/functions" as *;
+@use "styles/mixins" as *;
+
+.burger {
+  display: inline-flex;
+  padding: 0;
+  outline: none;
+
+  @include interactive {
+    color: var(--color-gray-alt);
+  }
+
+  &__icon {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: rem(6);
+    block-size: rem(24);
+    inline-size: rem(24);
+    color: inherit;
+  }
+
+  &__line {
+    display: block;
+    block-size: rem(2);
+    inline-size: rem(24);
+    background-color: currentcolor;
+    transition: all 0.3s ease;
+    transform-origin: center;
+
+    &.top,
+    &.bottom {
+      position: absolute;
+      inset-inline-start: 0;
+    }
+
+    &.top {
+      inset-block-start: rem(4);
+    }
+
+    &.bottom {
+      inset-block-end: rem(4);
+    }
+  }
+
+  &.active {
+    .top {
+      inset-block-start: calc(50% - rem(1));
+      transform: rotate(45deg);
+    }
+
+    .middle {
+      opacity: 0;
+    }
+
+    .bottom {
+      inset-block-end: calc(50% - rem(1));
+      transform: rotate(-45deg);
+    }
+  }
+}

@@ -1,1 +1,6 @@
-<h1>djghdfkjghdflkgjdf</h1>
+@if (isLoading()) {
+  <loading @loadingAnimation [fullPage]="true"></loading>
+}
+<div [hidden]="isLoading()" class="wrapper">
+  <router-outlet></router-outlet>
+</div>

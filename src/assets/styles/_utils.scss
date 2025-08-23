@@ -1,0 +1,17 @@
+@use "./mixins" as *;
+
+.container {
+  max-inline-size: calc(
+    var(--container-width) + var(--container-padding-x) * 2
+  );
+  margin-inline: auto;
+  padding-inline: var(--container-padding-x);
+}
+
+.visually-hidden {
+  @include visually-hidden;
+}
+
+.text-decoration {
+  @include textDecoration;
+}

@@ -1,0 +1,118 @@
+{
+  "button": {
+    "goHome": "Go home",
+    "send": "Send",
+    "back": "Back",
+    "viewAll": "View all"
+  },
+  "langSelect": {
+    "ariaLabel": "Language selection"
+  },
+  "notFound": {
+    "title": "The page you’re looking for can’t be found!"
+  },
+  "language": {
+    "english": "EN",
+    "ukrainian": "UA"
+  },
+  "burger": {
+    "open": "Open menu",
+    "close": "Close menu"
+  },
+  "search": {
+    "open": "Open search",
+    "label": "Site search",
+    "input": "Enter search query",
+    "perform": "Perform search",
+    "clear": "Clear search",
+    "results": "Search results",
+    "noResults": "Nothing found"
+  },
+  "form": {
+    "passwordAriaLabel": "Toggle password visibility",
+    "forgotPassword": "Forgot password?",
+    "notAccount": "Don't have an account?",
+    "haveAccount": "Already have an account?",
+    "loginTitle": "Authorization",
+    "registerTitle": "Registration",
+    "firstName": "First name",
+    "lastName": "Last name",
+    "email": "Email",
+    "password": "Password",
+    "message": "Message",
+    "login": {
+      "title": "Welcome",
+      "text": "Please log in to your account"
+    },
+    "create": {
+      "title": "Create account",
+      "text": "Please enter details"
+    },
+    "forgot": {
+      "title": "Forgot password",
+      "text": "Enter your registered email address. we’ll send you a code to reset your password"
+    },
+    "otp": {
+      "title": "Enter OTP",
+      "text": "We have share a code of your registered email address robertfox@example.com",
+      "error": "OTP code is incorrect or incomplete",
+      "success": {
+        "title": "Password Changed Successfully",
+        "text": "Your password has been successfully changed. You can now log in with your new password.",
+        "buttonText": "Go to Login"
+      }
+    },
+    "errors": {
+      "required": "This field is required",
+      "minlength": "Minimum {{requiredLength}} characters (currently {{actualLength}})",
+      "maxlength": "Maximum {{requiredLength}} characters",
+      "email": "Invalid email format",
+      "passwordPattern": "Password must be should contain numbers, special characters and uppercase letters.",
+      "customServerError": "Server error: {{message}}"
+    }
+  },
+  "header": {
+    "ariaLabel": "Navigation at the top of the page"
+  },
+  "footer": {
+    "text": "We have clothes that suits your style and which you’re proud to wear. From women to men.",
+    "reserved": "All rights reserved.",
+    "ariaLabel": "Navigation at the bottom of the page",
+    "form": {
+      "title": "Stay up to date about our latest offers",
+      "email": "Email address",
+      "btn": "Subscribe to Newsletter"
+    }
+  },
+  "hero": {
+    "company": "Companies we cooperate with"
+  },
+  "rating": {
+    "ariaLabel": "Product rating on a five-point scale",
+    "star": "star"
+  },
+  "customers": {
+    "title": "Our happy customers",
+    "prev": "Previous slide",
+    "next": "Next slide"
+  },
+  "swiper": {
+    "containerMessage": "This is a carousel of testimonials.",
+    "containerRoleDescriptionMessage": "Carousel section",
+    "firstSlideMessage": "This is the first slide",
+    "lastSlideMessage": "This is the last slide",
+    "nextSlideMessage": "Next slide",
+    "prevSlideMessage": "Previous slide",
+    "itemRoleDescriptionMessage": "Testimonial slide",
+    "paginationBulletMessage": "Go to slide {{index}}",
+    "slideLabelMessage": "Slide {{index}} of {{slidesLength}}"
+  },
+  "contacts": {
+    "title": "Contact Us",
+    "call": "Call Us",
+    "mail": "Email Us",
+    "location": "Location",
+    "terms": "I agree all the terms and conditions",
+    "map": "Unlock the map"
+  }
+}

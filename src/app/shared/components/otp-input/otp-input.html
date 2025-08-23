@@ -1,0 +1,17 @@
+<div class="otp-container" (focusout)="handleBlur()">
+  @for (_ of otpArray(); track $index; let i = $index) {
+    <input
+      #otpInput
+      [ngClass]="containerClasses"
+      [value]="otp()[i]"
+      (input)="onInput($event, i)"
+      (keydown)="onKeyDown($event, i)"
+      (paste)="onPaste($event)"
+      type="text"
+      maxlength="1"
+      autocomplete="one-time-code"
+      inputmode="numeric"
+      class="otp-input"
+    />
+  }
+</div>

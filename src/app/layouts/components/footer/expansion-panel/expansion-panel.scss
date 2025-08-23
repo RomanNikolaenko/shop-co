@@ -1,0 +1,61 @@
+@use "styles/mixins" as *;
+@use "styles/functions" as *;
+@use "styles/media" as *;
+
+.accordion {
+  display: flex;
+  flex-direction: column;
+
+  &__btn {
+    display: flex;
+    gap: rem(8);
+    margin-block-end: rem(12);
+    padding: 0;
+    outline: none;
+    text-align: left;
+    text-transform: uppercase;
+
+    &[disabled] {
+      cursor: auto;
+    }
+
+    &:not([disabled]) {
+      @include interactive {
+        color: var(--color-gray-alt);
+      }
+    }
+  }
+
+  &__icon {
+    flex: 0 0 auto;
+    margin-block-start: rem(3);
+    transform: scale(0.7) rotate(0);
+    transition: transform var(--transition-duration)
+      var(--transition-timing-function);
+
+    .open & {
+      transform: scale(0.7) rotate(180deg);
+    }
+  }
+
+  &__content {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 0.4s ease;
+    overflow: hidden;
+
+    .open & {
+      grid-template-rows: 1fr;
+    }
+  }
+
+  &__list {
+    display: grid;
+    overflow: hidden;
+  }
+
+  &__link {
+    padding-block: rem(8);
+    color: var(--color-gray-alt);
+  }
+}

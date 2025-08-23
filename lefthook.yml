@@ -1,0 +1,22 @@
+pre-commit:
+  parallel: true
+  commands:
+    prettier:
+      files: git diff --name-only --cached -- '*.ts' '*.js' '*.json' '*.html' '*.css' '*.scss'
+      run: npx prettier --write {files}
+    eslint:
+      files: git diff --name-only --cached -- '*.ts' '*.tsx' '*.js' '*.jsx'
+      run: npx eslint --fix {files}
+    stylelint:
+      files: git diff --name-only --cached -- '*.scss' '*.css'
+      run: npx stylelint --fix {files}
+    tsc:
+      run: npx tsc --noEmit
+
+pre-push:
+  parallel: false
+  commands:
+    test:
+      run: npm test
+    build:
+      run: npm run build

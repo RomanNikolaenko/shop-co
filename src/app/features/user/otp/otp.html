@@ -1,0 +1,58 @@
+<section class="otp user">
+  <div class="otp__container user__container container">
+    <div class="otp__bg user__bg"></div>
+    <div class="user__wrap">
+      <a
+        [routerLink]="[STATIC_ROUTES.USER.CH.LOGIN.RouterLink]"
+        class="user__back text-decoration"
+      >
+        <icon name="arrow-back" role="img" aria-hidden="true"></icon>
+        <span>{{ "button.back" | translate }}</span>
+      </a>
+
+      <form
+        [formGroup]="form"
+        (ngSubmit)="onSubmit()"
+        class="otp__form user__form"
+      >
+        <div class="otp__text user__text">
+          <h1 class="otp__title user__title">
+            {{ "form.otp.title" | translate }}
+          </h1>
+          <p class="otp__subtitle user__subtitle">
+            {{ "form.otp.text" | translate }}
+          </p>
+        </div>
+
+        <div class="otp__wrap">
+          <otp-input
+            [length]="6"
+            [pattern]="otpPattern"
+            (blur)="onOtpBlur()"
+            [showError]="
+              (form.get('otp')?.invalid ?? false) &&
+              (isOtpTouched || isFormSubmitted)
+            "
+            formControlName="otp"
+          >
+          </otp-input>
+
+          @if (form.get("otp")?.invalid && (isOtpTouched || isFormSubmitted)) {
+            <p class="otp__error">
+              {{ "form.otp.error" | translate }}
+            </p>
+          }
+        </div>
+
+        <button
+          [disabled]="form.invalid"
+          [ngClass]="containerClasses"
+          class="user__submit btn btn__black"
+          type="submit"
+        >
+          <span class="btn__text">{{ "button.send" | translate }}</span>
+        </button>
+      </form>
+    </div>
+  </div>
+</section>

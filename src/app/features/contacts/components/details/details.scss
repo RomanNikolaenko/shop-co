@@ -1,0 +1,51 @@
+@use "styles/mixins" as *;
+@use "styles/functions" as *;
+@use "styles/media" as *;
+
+.details {
+  display: grid;
+  gap: rem(32);
+  grid-template-columns: repeat(auto-fit, minmax(rem(280), 1fr));
+
+  &__item {
+    display: grid;
+    align-items: center;
+    gap: rem(12);
+    grid-template-columns: rem(28) minmax(0, 1fr);
+
+    @include mobile-s-above {
+      gap: rem(20);
+      grid-template-columns: rem(40) minmax(0, 1fr);
+    }
+  }
+
+  &__icon {
+    block-size: 100%;
+    inline-size: 100%;
+  }
+
+  &__title {
+    @include fluid("font-size", 22, 16);
+  }
+
+  &__link {
+    padding-bottom: rem(2);
+    color: var(--color-gray-alt);
+
+    @include fluid("font-size", 20, 18);
+
+    &-ellipsis {
+      max-inline-size: 100%;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+}

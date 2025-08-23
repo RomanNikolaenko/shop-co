@@ -1,0 +1,84 @@
+@use "styles/functions" as *;
+@use "styles/mixins" as *;
+
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  block-size: 100%;
+
+  &__image {
+    display: flex;
+    justify-content: center;
+    box-shadow: 0 0 rem(3) transparent;
+    border-radius: rem(20);
+    background-color: var(--color-gray);
+    transition-property: box-shadow;
+
+    @include interactive {
+      box-shadow: 0 0 rem(3) var(--color-gray-alt);
+    }
+  }
+
+  &__img {
+    inline-size: 100%;
+    width: auto;
+    height: auto;
+    max-block-size: rem(300);
+    object-fit: contain;
+    pointer-events: none;
+  }
+
+  &__info {
+    display: flex;
+    flex: 1 1 auto;
+    flex-direction: column;
+    gap: rem(8);
+    margin-block-start: rem(16);
+  }
+
+  &__title {
+    margin-block-end: auto;
+
+    @include fluid("font-size", 20, 16);
+  }
+
+  &__link {
+    user-select: all;
+  }
+
+  &__currency {
+    user-select: none;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: rem(12);
+    font-weight: 500;
+  }
+
+  &__price {
+    @include fluid("font-size", 24, 20);
+
+    &-old {
+      text-decoration: line-through;
+      color: var(--color-gray-alt);
+      opacity: 0.4;
+    }
+  }
+
+  &__save {
+    user-select: none;
+    position: absolute;
+    inset-block-start: rem(8);
+    inset-inline-start: rem(8);
+    padding-block: rem(8);
+    padding-inline: rem(13);
+    border-radius: 100vmax;
+    font-weight: 400;
+    color: var(--color-pink);
+    background-color: var(--color-pink-alt);
+    pointer-events: none;
+
+    @include fluid("font-size", 12, 10);
+  }
+}

@@ -1,0 +1,40 @@
+<div class="main">
+  <div class="main__aside">
+    <app-logo class="main__logo" />
+    <p class="main__text">{{ "footer.text" | translate }}</p>
+
+    <div class="main__contacts">
+      <a href="/" target="_blank" rel="nofollow" class="main__link">
+        <span class="visually-hidden">Twitter</span>
+        <icon class="main__icon" role="img" aria-hidden="true" name="twitter" />
+      </a>
+      <a href="/" target="_blank" rel="nofollow" class="main__link">
+        <span class="visually-hidden">Facebook</span>
+        <icon
+          class="main__icon"
+          role="img"
+          aria-hidden="true"
+          name="facebook"
+        />
+      </a>
+      <a href="/" target="_blank" rel="nofollow" class="main__link">
+        <span class="visually-hidden">Instagram</span>
+        <icon
+          class="main__icon"
+          role="img"
+          aria-hidden="true"
+          name="instagram"
+        />
+      </a>
+    </div>
+  </div>
+
+  <nav
+    class="main__accordion"
+    attr.aria-label="{{ 'footer.ariaLabel' | translate }}"
+  >
+    @for (item of array; track $index) {
+      <app-expansion-panel [data]="item" [index]="$index + 1" />
+    }
+  </nav>
+</div>

@@ -1,0 +1,31 @@
+<section class="browse container">
+  <div class="browse__container">
+    <h2 class="browse__title">BROWSE BY dress STYLE</h2>
+
+    <div class="browse__list">
+      @for (item of data; track $index) {
+        <a [routerLink]="'/'" class="browse__item">
+          <span class="browse__item-title">{{ item.title }}</span>
+          <img
+            [src]="item.src"
+            [srcset]="item.srcset"
+            class="browse__item-img"
+            [attr.sizes]="
+              '(max-width: 47.99rem) 100vw, ' +
+              '(max-width: 63.99rem) 50vw, ' +
+              ($index % 4 === 0 || $index % 4 === 3 || $index % 4 === 4
+                ? '(min-width: 64rem) 25vw'
+                : '(min-width: 64rem) 75vw') +
+              ', 75vw'
+            "
+            width="407"
+            height="289"
+            loading="lazy"
+            decoding="async"
+            alt=""
+          />
+        </a>
+      }
+    </div>
+  </div>
+</section>

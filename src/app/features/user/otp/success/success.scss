@@ -1,0 +1,58 @@
+@use "styles/functions" as *;
+@use "styles/mixins" as *;
+
+.success {
+  width: 100%;
+  max-width: rem(450);
+  box-shadow:
+    0 8px 8px -4px rgb(16 24 40 / 2%),
+    0 10px 40px -4px rgb(16 24 40 / 2%);
+
+  &__icon {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-block-end: rem(16);
+    margin-inline: auto;
+    border-radius: 50%;
+    background-image:
+      radial-gradient(circle, #131118 0, #131118 42%, transparent 43%),
+      radial-gradient(
+        circle,
+        rgb(19 17 24 / 10%) 0,
+        rgb(19 17 24 / 10%) 57%,
+        transparent 58%
+      ),
+      radial-gradient(circle, rgb(19 17 24 / 5%) 0, rgb(19 17 24 / 5%) 100%);
+
+    @include fluid(width, 108, 86, 1024);
+    @include fluid(height, 108, 86, 1024);
+  }
+
+  &__svg {
+    padding: rem(2);
+    border-radius: 50%;
+    color: var(--color-dark);
+    background-color: var(--color-light);
+  }
+
+  &__title {
+    margin-bottom: 0.5rem;
+    font-size: rem(24);
+    font-weight: 700;
+    text-align: center;
+    text-wrap: balance;
+  }
+
+  &__text {
+    margin-bottom: 1.5rem;
+    text-align: center;
+    text-wrap: balance;
+  }
+
+  &__btn {
+    width: 100%;
+  }
+}

@@ -1,0 +1,86 @@
+@use "styles/mixins" as *;
+@use "styles/functions" as *;
+@use "styles/media" as *;
+
+.browse {
+  &__container {
+    background-color: var(--color-gray-alt);
+
+    @include fluid("border-radius", 40, 20);
+    @include fluid("margin-block-start", 80, 40);
+    @include fluid("padding-inline", 60, 20);
+    @include fluid("padding-block", 70, 32);
+  }
+
+  &__title {
+    font-weight: 700;
+    text-align: center;
+    text-transform: uppercase;
+    text-wrap: balance;
+    color: var(--color-light);
+
+    @include fluid("margin-block-end", 64, 24);
+  }
+
+  &__list {
+    display: grid;
+    gap: rem(20);
+    grid-template-columns: repeat(12, 1fr);
+  }
+
+  &__item {
+    --span: 12;
+
+    position: relative;
+    grid-column: span var(--span);
+    border-radius: rem(20);
+    color: var(--color-dark);
+    background-color: var(--color-light);
+    transition-property: box-shadow;
+    overflow: hidden;
+
+    @include fluid("max-block-size", 290, 190);
+
+    @include tablet-above {
+      @for $i from 1 through 4 {
+        $span: if($i == 2 or $i == 3, 8, 4);
+
+        &:nth-child(4n + #{$i}) {
+          --span: #{$span};
+        }
+      }
+    }
+
+    @include mobile-above {
+      --span: 6;
+    }
+
+    @include interactive {
+      box-shadow: 0 0 rem(12) var(--color-light);
+
+      .browse__item-img {
+        scale: 1.1;
+      }
+    }
+  }
+
+  &__item-title {
+    position: absolute;
+    z-index: 3;
+    font-weight: 700;
+    color: inherit;
+
+    @include fluid("font-size", 36, 24);
+    @include fluid("inset-block", 25, 16);
+    @include fluid("inset-inline", 36, 24);
+  }
+
+  &__item-img {
+    block-size: 100%;
+    inline-size: 100%;
+    object-fit: cover;
+    object-position: center center;
+    transition: scale var(--transition-duration)
+      var(--transition-timing-function);
+  }
+}

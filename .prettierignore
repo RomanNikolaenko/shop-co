@@ -1,0 +1,40 @@
+# Ignore build output and dependencies
+node_modules/
+dist/
+build/
+coverage/
+
+# Ignore compiled files
+*.js
+*.d.ts
+*.map
+
+# Ignore environment and config
+.env
+.env.*
+
+# Ignore Angular output
+out-tsc/
+
+# Ignore lock files
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# Ignore IDE/editor files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Ignore public assets
+public/
+
+# Ignore test snapshots
+*.snap
+
+# Ignore generated files
+*.log
+
+# Ignore HTML entry
+src/index.html

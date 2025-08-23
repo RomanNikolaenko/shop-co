@@ -1,0 +1,124 @@
+@use "styles/functions" as *;
+@use "styles/mixins" as *;
+@use "styles/media" as *;
+
+:host {
+  position: sticky;
+  z-index: 100;
+  top: 0;
+  right: 0;
+  left: 0;
+  background-color: var(--color-light);
+}
+
+.header {
+  $min-width: rem(420);
+  $max-width: rem(767.98);
+
+  position: relative;
+  z-index: 100;
+  box-shadow: 0 rem(2) rem(4) var(--color-gray-alt);
+
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-block: rem(12);
+
+    @include fluid("gap", 40, 20);
+
+    @include tablet-above {
+      padding-block: rem(18);
+    }
+
+    @media (min-width: #{$min-width}) and (max-width: #{$max-width}) {
+      block-size: rem(63);
+    }
+  }
+
+  &__burger {
+    display: inline-flex;
+
+    @include tablet-above {
+      display: none;
+    }
+  }
+
+  &__logo {
+    display: inline-block;
+    flex: 0 0 auto;
+
+    @include fluid("inline-size", 160, 100);
+  }
+
+  &__menu {
+    position: relative;
+    z-index: 20;
+    transition: none;
+
+    &--active {
+      visibility: visible;
+      opacity: 1;
+    }
+
+    &--transition {
+      transition: all var(--transition-duration)
+        var(--transition-timing-function);
+    }
+
+    @media (min-width: #{$min-width}) and (max-width: #{$max-width}) {
+      top: rem(63);
+    }
+
+    @include tablet {
+      visibility: hidden;
+      position: fixed;
+      inset: rem(74) 0 0;
+      background-color: rgb(164 161 170 / 20%);
+      backdrop-filter: blur(rem(6));
+      opacity: 0;
+    }
+
+    @include mobile {
+      top: rem(56);
+    }
+
+    @include mobile-s {
+      top: rem(48);
+    }
+  }
+
+  &__search {
+    position: relative;
+    z-index: 20;
+    inline-size: 100%;
+    transition: none;
+
+    @include mobile {
+      visibility: hidden;
+      position: fixed;
+      inset: rem(56) 0 0;
+      background-color: rgb(164 161 170 / 20%);
+      backdrop-filter: blur(rem(6));
+      opacity: 0;
+    }
+
+    @include mobile-s {
+      top: rem(48);
+    }
+
+    &--active {
+      visibility: visible;
+      opacity: 1;
+    }
+
+    &--transition {
+      transition: all var(--transition-duration)
+        var(--transition-timing-function);
+    }
+  }
+
+  &__actions {
+    margin-inline-start: auto;
+  }
+}

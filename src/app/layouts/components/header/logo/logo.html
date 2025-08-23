@@ -1,0 +1,13 @@
+<div class="logo">
+  @if (isHome()) {
+    <span class="logo__link">
+      <span class="visually-hidden">Shop.Co</span>
+      <icon name="logo" role="img" aria-hidden="true" class="logo__icon"></icon>
+    </span>
+  } @else {
+    <a [routerLink]="[STATIC_ROUTES.HOME.RouterLink]" class="logo__link">
+      <span class="visually-hidden">Shop.Co</span>
+      <icon name="logo" role="img" aria-hidden="true" class="logo__icon"></icon>
+    </a>
+  }
+</div>

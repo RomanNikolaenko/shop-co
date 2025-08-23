@@ -1,0 +1,52 @@
+@use "styles/functions" as *;
+@use "styles/mixins" as *;
+
+.popup-backdrop {
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  block-size: 100%;
+  inline-size: 100%;
+  background: rgb(164 161 170 / 20%);
+  backdrop-filter: blur(rem(6));
+  opacity: 0;
+}
+
+.popup {
+  position: relative;
+  max-inline-size: calc(100% - var(--container-padding-x) * 2);
+  max-block-size: calc(100% - var(--container-padding-x) * 2);
+  padding: rem(20);
+  border-radius: rem(12);
+  background-color: var(--color-light);
+  overflow-y: auto;
+
+  &__header {
+    display: flex;
+    gap: 1rem;
+    margin-block-end: 1rem;
+  }
+
+  &__close {
+    display: inline-flex;
+    flex: 0 0 auto;
+    justify-content: center;
+    align-items: center;
+    block-size: rem(40);
+    inline-size: rem(40);
+    margin-inline-start: auto;
+    padding: 0;
+    border: rem(1) solid currentcolor;
+    border-radius: rem(4);
+    transition: all var(--transition-duration) var(--transition-timing-function);
+
+    @include interactive {
+      color: var(--color-light);
+      background-color: var(--color-dark);
+    }
+  }
+}

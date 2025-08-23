@@ -1,0 +1,17 @@
+<section class="product">
+  <div class="product__container container">
+    <h2 class="product__title">{{ title }}</h2>
+
+    <div class="product__wrap">
+      @for (item of data; track $index) {
+        <product-card [data]="item" />
+      }
+    </div>
+
+    @if (isButton) {
+      <a [routerLink]="'/'" class="product__link btn btn__white">
+        <span class="btn__text">{{ "button.viewAll" | translate }}</span>
+      </a>
+    }
+  </div>
+</section>
