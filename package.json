@@ -4,10 +4,11 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
+    "build": "rimraf dist && ng build",
+    "build:ssr": "npm run build && npm run serve:ssr",
+    "serve:ssr": "node dist/shop-co/server/server.mjs",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test",
-    "serve:ssr:shop-co": "node dist/shop-co/server/server.mjs"
+    "test": "ng test"
   },
   "prettier": {
     "printWidth": 100,
@@ -32,6 +33,7 @@
     "@angular/router": "^20.2.0",
     "@angular/ssr": "^20.2.0",
     "express": "^5.1.0",
+    "rimraf": "^6.0.1",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0"
   },
