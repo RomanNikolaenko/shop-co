@@ -2,11 +2,11 @@
   "version": 2,
   "builds": [
     {
-      "src": "./src/server.ts",
+      "src": "./dist/shop-co/server/server.mjs",
       "use": "@vercel/node"
     },
     {
-      "src": "dist/shop-co/browser/**",
+      "src": "./dist/shop-co/browser/**",
       "use": "@vercel/static"
     }
   ],
