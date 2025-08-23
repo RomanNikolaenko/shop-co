@@ -6,14 +6,14 @@
       "use": "@vercel/node"
     },
     {
-      "src": "dist/shop-co/browser/**",
+      "src": "./dist/shop-co/browser/**",
       "use": "@vercel/static"
     }
   ],
   "routes": [
     {
       "src": "/(.*)",
-      "dest": "/dist/shop-co/server/server.mjs"
+      "dest": "/server.mjs"
     }
   ]
 }
