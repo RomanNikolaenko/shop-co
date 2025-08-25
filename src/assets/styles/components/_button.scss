@@ -1,5 +1,5 @@
-@use "../functions" as *;
-@use "../mixins" as *;
+@use '../functions' as *;
+@use '../mixins' as *;
 
 .btn {
   position: relative;
@@ -16,7 +16,7 @@
     padding-inline: rem(24);
     inline-size: 100%;
 
-    @include fluid("padding-block", 16, 12);
+    @include fluid('padding-block', 16, 12);
   }
 
   &__black {
@@ -71,7 +71,7 @@
 
   &__load {
     &::before {
-      content: "";
+      content: '';
       position: absolute;
       inset-inline-start: calc(50% - rem(24) / 2);
       inset-block-start: calc(50% - rem(24) / 2);

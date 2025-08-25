@@ -1,11 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
-import {
-  FormBuilder,
-  FormControl,
-  ReactiveFormsModule,
-  Validators,
-} from '@angular/forms';
+import { FormBuilder, FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
 import { RouterLink } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
 
@@ -16,14 +11,7 @@ import { Icon } from '^shared/components/icon/icon';
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [
-    CommonModule,
-    ReactiveFormsModule,
-    FormField,
-    TranslateModule,
-    RouterLink,
-    Icon,
-  ],
+  imports: [CommonModule, ReactiveFormsModule, FormField, TranslateModule, RouterLink, Icon],
   templateUrl: './login.html',
   styleUrls: ['./login.scss', '../user.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -46,9 +34,7 @@ export class Login {
     email: new FormControl<string>('', [Validators.required, Validators.email]),
     password: new FormControl<string>('', [
       Validators.required,
-      Validators.pattern(
-        '(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*)(+=._-]).{6,20}',
-      ),
+      Validators.pattern('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*)(+=._-]).{6,20}'),
       Validators.minLength(6),
       Validators.maxLength(20),
     ]),

@@ -1,9 +1,4 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  computed,
-  inject,
-} from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
 import { STATIC_ROUTES } from '^core/static-routes';
@@ -24,7 +19,5 @@ export class Logo {
   protected currentRoute = this.isCurrentRouteService.currentRoute;
   protected STATIC_ROUTES = STATIC_ROUTES;
 
-  protected isHome = computed(
-    () => this.currentRoute() === STATIC_ROUTES.HOME.RouterLink,
-  );
+  protected isHome = computed(() => this.currentRoute() === STATIC_ROUTES.HOME.RouterLink);
 }

@@ -1,11 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
-import {
-  ReactiveFormsModule,
-  FormBuilder,
-  Validators,
-  FormControl,
-} from '@angular/forms';
+import { ReactiveFormsModule, FormBuilder, Validators, FormControl } from '@angular/forms';
 import { RouterLink } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
 
@@ -16,14 +11,7 @@ import { Icon } from '^shared/components/icon/icon';
 @Component({
   selector: 'app-forgot',
   standalone: true,
-  imports: [
-    CommonModule,
-    ReactiveFormsModule,
-    FormField,
-    TranslateModule,
-    RouterLink,
-    Icon,
-  ],
+  imports: [CommonModule, ReactiveFormsModule, FormField, TranslateModule, RouterLink, Icon],
   templateUrl: './forgot.html',
   styleUrls: ['./forgot.scss', '../user.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,

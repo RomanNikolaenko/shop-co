@@ -1,6 +1,6 @@
-@use "styles/mixins" as *;
-@use "styles/functions" as *;
-@use "styles/media" as *;
+@use 'styles/mixins' as *;
+@use 'styles/functions' as *;
+@use 'styles/media' as *;
 
 :host {
   $width: rem(600);
@@ -12,23 +12,23 @@
     @media (width > #{$width}) {
       .form {
         grid-template-areas:
-          "name email"
-          "message message"
-          "checkbox checkbox"
-          "btn btn";
+          'name email'
+          'message message'
+          'checkbox checkbox'
+          'btn btn';
         grid-template-rows: auto auto auto auto;
       }
 
       .form__field {
-        &[name="name"] {
+        &[name='name'] {
           grid-area: name;
         }
 
-        &[name="email"] {
+        &[name='email'] {
           grid-area: email;
         }
 
-        &[name="message"] {
+        &[name='message'] {
           grid-area: message;
         }
       }
@@ -47,23 +47,23 @@
     @container (width > #{$width}) {
       .form {
         grid-template-areas:
-          "name email"
-          "message message"
-          "checkbox checkbox"
-          "btn btn";
+          'name email'
+          'message message'
+          'checkbox checkbox'
+          'btn btn';
         grid-template-rows: auto auto auto auto;
       }
 
       .form__field {
-        &[name="name"] {
+        &[name='name'] {
           grid-area: name;
         }
 
-        &[name="email"] {
+        &[name='email'] {
           grid-area: email;
         }
 
-        &[name="message"] {
+        &[name='message'] {
           grid-area: message;
         }
       }
@@ -87,8 +87,7 @@
     block-size: 100%;
     inline-size: 100%;
     opacity: 0;
-    transition: opacity var(--transition-duration)
-      var(--transition-timing-function);
+    transition: opacity var(--transition-duration) var(--transition-timing-function);
   }
 
   &__svg {

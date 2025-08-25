@@ -1,8 +1,4 @@
-<nav
-  (click)="onBackgroundClick($event)"
-  attr.aria-label="{{ 'header.ariaLabel' | translate }}"
-  class="nav"
->
+<nav (click)="onBackgroundClick($event)" attr.aria-label="{{ 'header.ariaLabel' | translate }}" class="nav">
   <ul class="nav__list">
     @if (!showLangSelect()) {
       <li class="nav__item nav__item-select">
@@ -15,10 +11,7 @@
           <span>About</span>
         </span>
       } @else {
-        <a
-          [routerLink]="[STATIC_ROUTES.ABOUT.RouterLink]"
-          routerLinkActive="nav__link--active"
-          class="nav__link text-decoration"
+        <a [routerLink]="[STATIC_ROUTES.ABOUT.RouterLink]" routerLinkActive="nav__link--active" class="nav__link text-decoration"
           ><span>About</span></a
         >
       }

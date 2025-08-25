@@ -1,5 +1,5 @@
-@use "styles/mixins" as *;
-@use "styles/functions" as *;
+@use 'styles/mixins' as *;
+@use 'styles/functions' as *;
 
 .company {
   position: relative;
@@ -11,7 +11,7 @@
     justify-content: center;
     gap: rem(20) rem(24);
 
-    @include fluid("padding-block", 50, 34);
+    @include fluid('padding-block', 50, 34);
   }
 
   &__logo {

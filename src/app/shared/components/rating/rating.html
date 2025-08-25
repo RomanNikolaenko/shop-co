@@ -4,8 +4,7 @@
   role="radiogroup"
   attr.aria-label="{{ 'rating.ariaLabel' | translate }}"
   itemscope
-  itemtype="https://schema.org/AggregateRating"
->
+  itemtype="https://schema.org/AggregateRating">
   <meta itemprop="bestRating" content="5" />
   <meta itemprop="worstRating" content="1" />
   <meta itemprop="ratingValue" [content]="ratingShow()" />
@@ -19,8 +18,7 @@
       [disabled]="readonly"
       type="button"
       class="rating__btn"
-      role="radio"
-    >
+      role="radio">
       <svg
         class="rating__icon"
         xmlns="http://www.w3.org/2000/svg"
@@ -28,13 +26,11 @@
         width="24"
         height="24"
         focusable="false"
-        aria-hidden="true"
-      >
+        aria-hidden="true">
         <path
           fill="currentColor"
           d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 
-        9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
-        />
+        9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
       </svg>
     </button>
   }

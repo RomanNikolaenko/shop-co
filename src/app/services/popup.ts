@@ -24,33 +24,25 @@ export class PopupService {
   private readonly router = inject(Router);
 
   private readonly baseZIndex = 1000;
-  private readonly popups = signal<ComponentRef<PopupHostComponent<object>>[]>(
-    [],
-  );
+  private readonly popups = signal<ComponentRef<PopupHostComponent<object>>[]>([]);
 
   readonly popupCount = computed(() => this.popups().length);
 
   constructor() {
-    this.router.events
-      .pipe(takeUntilDestroyed(this.destroyRef))
-      .subscribe((event) => {
-        if (event instanceof NavigationStart) {
-          this.closeAll();
-        }
-      });
+    this.router.events.pipe(takeUntilDestroyed(this.destroyRef)).subscribe((event) => {
+      if (event instanceof NavigationStart) {
+        this.closeAll();
+      }
+    });
   }
 
-  open<T extends object>(
-    component: Type<T>,
-    componentInputs?: Partial<T>,
-  ): void {
+  open<T extends object>(component: Type<T>, componentInputs?: Partial<T>): void {
     const popupRef = createComponent(PopupHostComponent<T>, {
       environmentInjector: this.appRef.injector,
       elementInjector: this.injector,
     });
 
-    const domElem = (popupRef.hostView as EmbeddedViewRef<unknown>)
-      .rootNodes[0] as HTMLElement;
+    const domElem = (popupRef.hostView as EmbeddedViewRef<unknown>).rootNodes[0] as HTMLElement;
 
     const currentZIndex = this.baseZIndex + this.popups().length;
     domElem.style.zIndex = String(currentZIndex);
@@ -60,16 +52,11 @@ export class PopupService {
     popupRef.setInput('childComponentInputs', componentInputs || {});
 
     popupRef.instance.closed.subscribe(() => {
-      this.close(
-        popupRef as unknown as ComponentRef<PopupHostComponent<object>>,
-      );
+      this.close(popupRef as unknown as ComponentRef<PopupHostComponent<object>>);
     });
 
     this.appRef.attachView(popupRef.hostView);
-    this.popups.update((list) => [
-      ...list,
-      popupRef as unknown as ComponentRef<PopupHostComponent<object>>,
-    ]);
+    this.popups.update((list) => [...list, popupRef as unknown as ComponentRef<PopupHostComponent<object>>]);
   }
 
   close(popupRef: ComponentRef<PopupHostComponent<object>>): void {

@@ -1,6 +1,6 @@
 <fieldset class="field">
   <div class="field__wrap">
-    @if (typeInput === "input") {
+    @if (typeInput === 'input') {
       <label [ngClass]="containerClasses" class="field__label label-field">
         <input
           [(ngModel)]="value"
@@ -9,15 +9,11 @@
           [type]="typeInputPswrd ? type : 'text'"
           [attr.name]="name"
           autocomplete="off"
-          class="label-field__input"
-        />
+          class="label-field__input" />
         <span class="label-field__title">{{ label }}</span>
       </label>
-    } @else if (typeInput === "message") {
-      <label
-        [ngClass]="containerClasses"
-        class="field__label label-field label-field--textarea"
-      >
+    } @else if (typeInput === 'message') {
+      <label [ngClass]="containerClasses" class="field__label label-field label-field--textarea">
         <textarea
           [(ngModel)]="value"
           (ngModelChange)="onChange($event)"
@@ -25,24 +21,18 @@
           type="text"
           [attr.name]="name"
           autocomplete="off"
-          class="label-field__input"
-        ></textarea>
+          class="label-field__input"></textarea>
         <span class="label-field__title">{{ label }}</span>
       </label>
     }
 
-    @if (type === "password") {
+    @if (type === 'password') {
       <button
         (click)="typeInputPassword()"
         type="button"
         class="label-field__type"
-        attr.aria-label="{{ 'form.passwordAriaLabel' | translate }}"
-      >
-        <icon
-          [name]="typeInputPswrd ? 'eye' : 'eye-hide'"
-          role="img"
-          aria-hidden="true"
-        ></icon>
+        attr.aria-label="{{ 'form.passwordAriaLabel' | translate }}">
+        <icon [name]="typeInputPswrd ? 'eye' : 'eye-hide'" role="img" aria-hidden="true"></icon>
       </button>
     }
   </div>

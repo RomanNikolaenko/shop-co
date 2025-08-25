@@ -5,8 +5,7 @@
     name="name"
     label="{{ 'form.firstName' | translate }}"
     type="text"
-    class="form__field"
-  ></form-field>
+    class="form__field"></form-field>
 
   <form-field
     [data]="form.get('email')!"
@@ -14,8 +13,7 @@
     name="email"
     label="{{ 'form.email' | translate }}"
     type="email"
-    class="form__field"
-  ></form-field>
+    class="form__field"></form-field>
 
   <form-field
     [data]="form.get('message')!"
@@ -24,28 +22,17 @@
     name="message"
     label="{{ 'form.message' | translate }}"
     type="text"
-    class="form__field"
-  ></form-field>
+    class="form__field"></form-field>
 
   <label class="form__checkbox">
-    <input
-      class="form__input visually-hidden"
-      formControlName="terms"
-      name="terms"
-      type="checkbox"
-    />
+    <input class="form__input visually-hidden" formControlName="terms" name="terms" type="checkbox" />
     <span class="form__svg">
       <icon class="form__icon" name="done" role="img" aria-hidden="true" />
     </span>
-    <span class="form__label">{{ "contacts.terms" | translate }}</span>
+    <span class="form__label">{{ 'contacts.terms' | translate }}</span>
   </label>
 
-  <button
-    [disabled]="form.invalid || loading"
-    [ngClass]="containerClasses"
-    class="form__submit btn btn__black"
-    type="submit"
-  >
-    <span class="btn__text">{{ "button.send" | translate }}</span>
+  <button [disabled]="form.invalid || loading" [ngClass]="containerClasses" class="form__submit btn btn__black" type="submit">
+    <span class="btn__text">{{ 'button.send' | translate }}</span>
   </button>
 </form>

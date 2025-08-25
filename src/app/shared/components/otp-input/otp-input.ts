@@ -13,12 +13,7 @@ import {
   effect,
   WritableSignal,
 } from '@angular/core';
-import {
-  NG_VALUE_ACCESSOR,
-  ControlValueAccessor,
-  FormsModule,
-  ReactiveFormsModule,
-} from '@angular/forms';
+import { NG_VALUE_ACCESSOR, ControlValueAccessor, FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'otp-input',
@@ -91,9 +86,7 @@ export class OtpInput implements ControlValueAccessor {
 
   handleBlur() {
     setTimeout(() => {
-      const focusedInside = this.inputs
-        .toArray()
-        .some((inputRef) => inputRef.nativeElement === document.activeElement);
+      const focusedInside = this.inputs.toArray().some((inputRef) => inputRef.nativeElement === document.activeElement);
       if (!focusedInside) {
         this.onTouched();
         this.blur.emit();
@@ -105,10 +98,7 @@ export class OtpInput implements ControlValueAccessor {
     event.preventDefault();
 
     const pastedText = event.clipboardData?.getData('text')?.trim() ?? '';
-    const digits = pastedText
-      .replace(/\D/g, '')
-      .split('')
-      .slice(0, this.length());
+    const digits = pastedText.replace(/\D/g, '').split('').slice(0, this.length());
 
     if (digits.length === 0) return;
 

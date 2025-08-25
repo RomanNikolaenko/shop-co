@@ -1,10 +1,10 @@
-@forward "./reset";
-@forward "./fonts";
-@forward "./functions";
-@forward "./mixins";
-@forward "./media";
-@forward "./variables";
-@forward "./utils";
-@forward "./globals";
+@forward './reset';
+@forward './fonts';
+@forward './functions';
+@forward './mixins';
+@forward './media';
+@forward './variables';
+@forward './utils';
+@forward './globals';
 
-@use "./components/_button";
+@use './components/_button';

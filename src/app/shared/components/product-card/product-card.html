@@ -10,8 +10,7 @@
       height="298"
       loading="lazy"
       decoding="async"
-      itemprop="image"
-    />
+      itemprop="image" />
   </a>
 
   @if (data.save) {
@@ -20,23 +19,14 @@
 
   <div class="card__info">
     <h2 class="card__title" itemprop="name">
-      <a
-        [routerLink]="data.url"
-        class="card__link text-decoration"
-        itemprop="url"
-      >
+      <a [routerLink]="data.url" class="card__link text-decoration" itemprop="url">
         <span>{{ data.title }}</span>
       </a>
     </h2>
 
     <rating [rating]="3" [readonly]="true" />
 
-    <div
-      class="card__currency"
-      itemprop="offers"
-      itemscope
-      itemtype="https://schema.org/Offer"
-    >
+    <div class="card__currency" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
       <meta itemprop="priceCurrency" content="UAH" />
       <div class="card__price card__price-new">
         ₴<span itemprop="price">{{ data.price.new }}</span>

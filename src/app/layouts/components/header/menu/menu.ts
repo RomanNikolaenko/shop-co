@@ -1,13 +1,5 @@
 import { isPlatformBrowser } from '@angular/common';
-import {
-  ChangeDetectionStrategy,
-  Component,
-  computed,
-  DestroyRef,
-  inject,
-  PLATFORM_ID,
-  signal,
-} from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, DestroyRef, inject, PLATFORM_ID, signal } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { RouterModule } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
@@ -40,13 +32,9 @@ export class Menu {
   protected showLangSelect = signal(true);
   protected showBreakpoint = 450;
 
-  protected isAbout = computed(
-    () => this.currentRoute() === STATIC_ROUTES.ABOUT.RouterLink,
-  );
+  protected isAbout = computed(() => this.currentRoute() === STATIC_ROUTES.ABOUT.RouterLink);
 
-  protected isContact = computed(
-    () => this.currentRoute() === STATIC_ROUTES.CONTACTS.RouterLink,
-  );
+  protected isContact = computed(() => this.currentRoute() === STATIC_ROUTES.CONTACTS.RouterLink);
 
   ngOnInit(): void {
     if (!this.isBrowser) return;

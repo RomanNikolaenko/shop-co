@@ -12,13 +12,11 @@ export class IsCurrentRouteService {
   readonly currentRoute = signal(this.router.url);
 
   constructor() {
-    this.router.events
-      .pipe(takeUntilDestroyed(this.destroyRef))
-      .subscribe((event) => {
-        if (event instanceof NavigationEnd) {
-          this.currentRoute.set(event.urlAfterRedirects);
-        }
-      });
+    this.router.events.pipe(takeUntilDestroyed(this.destroyRef)).subscribe((event) => {
+      if (event instanceof NavigationEnd) {
+        this.currentRoute.set(event.urlAfterRedirects);
+      }
+    });
   }
 
   public isCurrentRoute(route: string): boolean {

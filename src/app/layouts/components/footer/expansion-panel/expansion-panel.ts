@@ -36,13 +36,9 @@ export class ExpansionPanel {
   @Input() data?: ExpansionPanelModel;
   @Input() index: number = 0;
 
-  readonly screenWidth: WritableSignal<number> = signal(
-    this.isBrowser ? window.innerWidth : this.mobileBreakpoint,
-  );
+  readonly screenWidth: WritableSignal<number> = signal(this.isBrowser ? window.innerWidth : this.mobileBreakpoint);
 
-  readonly isMobile = computed(
-    () => this.screenWidth() < this.mobileBreakpoint,
-  );
+  readonly isMobile = computed(() => this.screenWidth() < this.mobileBreakpoint);
 
   readonly isOpen = signal(true);
 

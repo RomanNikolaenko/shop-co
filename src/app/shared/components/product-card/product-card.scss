@@ -1,5 +1,5 @@
-@use "styles/functions" as *;
-@use "styles/mixins" as *;
+@use 'styles/functions' as *;
+@use 'styles/mixins' as *;
 
 .card {
   position: relative;
@@ -40,7 +40,7 @@
   &__title {
     margin-block-end: auto;
 
-    @include fluid("font-size", 20, 16);
+    @include fluid('font-size', 20, 16);
   }
 
   &__link {
@@ -57,7 +57,7 @@
   }
 
   &__price {
-    @include fluid("font-size", 24, 20);
+    @include fluid('font-size', 24, 20);
 
     &-old {
       text-decoration: line-through;
@@ -79,6 +79,6 @@
     background-color: var(--color-pink-alt);
     pointer-events: none;
 
-    @include fluid("font-size", 12, 10);
+    @include fluid('font-size', 12, 10);
   }
 }

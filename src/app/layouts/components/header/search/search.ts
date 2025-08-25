@@ -1,17 +1,6 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  DestroyRef,
-  inject,
-  OnInit,
-} from '@angular/core';
+import { ChangeDetectionStrategy, Component, DestroyRef, inject, OnInit } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
-import {
-  FormBuilder,
-  FormGroup,
-  ReactiveFormsModule,
-  Validators,
-} from '@angular/forms';
+import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { RouterLink } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
 
@@ -39,13 +28,7 @@ export class Search implements OnInit {
   protected readonly screenWidth = this.uiStateService.screenWidthSearch;
   protected readonly showSearchResults = this.uiStateService.showSearchResults;
 
-  protected products = [
-    'iPhone 15',
-    'Samsung Galaxy S24',
-    'MacBook Pro',
-    'iPad Air',
-    'Apple Watch',
-  ];
+  protected products = ['iPhone 15', 'Samsung Galaxy S24', 'MacBook Pro', 'iPad Air', 'Apple Watch'];
 
   protected filteredProducts: string[] = [];
   protected showClearButton = false;
@@ -59,18 +42,14 @@ export class Search implements OnInit {
   }
 
   constructor() {
-    this.queryControl?.valueChanges
-      .pipe(takeUntilDestroyed(this.destroyRef))
-      .subscribe((value) => {
-        const query = (value ?? '').trim();
+    this.queryControl?.valueChanges.pipe(takeUntilDestroyed(this.destroyRef)).subscribe((value) => {
+      const query = (value ?? '').trim();
 
-        this.showClearButton = query.length > 0;
-        this.uiStateService.setQuery(query);
+      this.showClearButton = query.length > 0;
+      this.uiStateService.setQuery(query);
 
-        this.filteredProducts = this.products.filter((product) =>
-          product.toLowerCase().includes(query.toLowerCase()),
-        );
-      });
+      this.filteredProducts = this.products.filter((product) => product.toLowerCase().includes(query.toLowerCase()));
+    });
   }
 
   ngOnInit() {

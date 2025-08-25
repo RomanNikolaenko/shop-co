@@ -1,6 +1,6 @@
-@use "styles/mixins" as *;
-@use "styles/functions" as *;
-@use "styles/media" as *;
+@use 'styles/mixins' as *;
+@use 'styles/functions' as *;
+@use 'styles/media' as *;
 
 .accordion {
   display: flex;
@@ -30,8 +30,7 @@
     flex: 0 0 auto;
     margin-block-start: rem(3);
     transform: scale(0.7) rotate(0);
-    transition: transform var(--transition-duration)
-      var(--transition-timing-function);
+    transition: transform var(--transition-duration) var(--transition-timing-function);
 
     .open & {
       transform: scale(0.7) rotate(180deg);

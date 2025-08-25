@@ -23,8 +23,7 @@ export class Home {
       url: '/',
       title: 'SKINNY FIT JEANS',
       src: 'assets/images/card/card@1x.webp 295w',
-      srcset:
-        'assets/images/card/card@1x.webp 295w, assets/images/card/card@2x.webp 590w, assets/images/card/card@3x.webp 885w',
+      srcset: 'assets/images/card/card@1x.webp 295w, assets/images/card/card@2x.webp 590w, assets/images/card/card@3x.webp 885w',
       alt: 'Назва картинки',
       price: {
         new: 268,
@@ -36,8 +35,7 @@ export class Home {
       url: '/',
       title: 'LOOSE FIT BERMUDA SHORTS',
       src: 'assets/images/card/card@1x.webp',
-      srcset:
-        'assets/images/card/card@1x.webp 295w, assets/images/card/card@2x.webp 590w, assets/images/card/card@3x.webp 885w',
+      srcset: 'assets/images/card/card@1x.webp 295w, assets/images/card/card@2x.webp 590w, assets/images/card/card@3x.webp 885w',
       alt: 'Назва картинки',
       price: {
         new: 352,

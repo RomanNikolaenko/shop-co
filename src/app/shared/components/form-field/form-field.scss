@@ -1,5 +1,5 @@
-@use "styles/mixins" as *;
-@use "styles/functions" as *;
+@use 'styles/mixins' as *;
+@use 'styles/functions' as *;
 
 :host {
   inline-size: 100%;
@@ -41,7 +41,7 @@
   transition: all var(--transition-duration) var(--transition-timing-function);
 
   &:not(.label-field--textarea) {
-    @include fluid("block-size", 56, 50, 1024);
+    @include fluid('block-size', 56, 50, 1024);
   }
 
   &--textarea {
@@ -58,7 +58,7 @@
     transform: translateY(-50%) scale(1);
     transform-origin: left top;
 
-    @include fluid("inset-block-start", 28, 25, 1024);
+    @include fluid('inset-block-start', 28, 25, 1024);
 
     .label-field__error & {
       color: var(--error);
@@ -100,8 +100,7 @@
       min-block-size: rem(150);
       padding-block: rem(32);
       resize: vertical;
-      transition: border-color var(--transition-duration)
-        var(--transition-timing-function);
+      transition: border-color var(--transition-duration) var(--transition-timing-function);
     }
 
     .label-field__padding & {

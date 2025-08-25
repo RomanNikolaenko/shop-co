@@ -1,11 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
-import {
-  ReactiveFormsModule,
-  FormBuilder,
-  Validators,
-  FormControl,
-} from '@angular/forms';
+import { ReactiveFormsModule, FormBuilder, Validators, FormControl } from '@angular/forms';
 import { RouterLink } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
 
@@ -19,14 +14,7 @@ import { Success } from './success/success';
 @Component({
   selector: 'app-otp',
   standalone: true,
-  imports: [
-    CommonModule,
-    ReactiveFormsModule,
-    TranslateModule,
-    RouterLink,
-    Icon,
-    OtpInput,
-  ],
+  imports: [CommonModule, ReactiveFormsModule, TranslateModule, RouterLink, Icon, OtpInput],
   templateUrl: './otp.html',
   styleUrls: ['./otp.scss', '../user.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -49,10 +37,7 @@ export class Otp {
   }
 
   protected form = this.formBuilder.nonNullable.group({
-    otp: new FormControl<string>('', [
-      Validators.required,
-      Validators.pattern(this.otpPattern),
-    ]),
+    otp: new FormControl<string>('', [Validators.required, Validators.pattern(this.otpPattern)]),
   });
 
   protected onOtpBlur() {

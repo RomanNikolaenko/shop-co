@@ -1,19 +1,6 @@
 import { CommonModule } from '@angular/common';
-import {
-  ChangeDetectionStrategy,
-  ChangeDetectorRef,
-  Component,
-  Input,
-  forwardRef,
-  inject,
-} from '@angular/core';
-import {
-  ControlValueAccessor,
-  FormsModule,
-  NG_VALUE_ACCESSOR,
-  ReactiveFormsModule,
-  AbstractControl,
-} from '@angular/forms';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, Input, forwardRef, inject } from '@angular/core';
+import { ControlValueAccessor, FormsModule, NG_VALUE_ACCESSOR, ReactiveFormsModule, AbstractControl } from '@angular/forms';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 
 import { Icon } from '../icon/icon';
@@ -21,13 +8,7 @@ import { Icon } from '../icon/icon';
 @Component({
   selector: 'form-field',
   standalone: true,
-  imports: [
-    CommonModule,
-    FormsModule,
-    ReactiveFormsModule,
-    TranslateModule,
-    Icon,
-  ],
+  imports: [CommonModule, FormsModule, ReactiveFormsModule, TranslateModule, Icon],
   templateUrl: './form-field.html',
   styleUrls: ['./form-field.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,

@@ -1,6 +1,6 @@
-@use "styles/mixins" as *;
-@use "styles/functions" as *;
-@use "styles/media" as *;
+@use 'styles/mixins' as *;
+@use 'styles/functions' as *;
+@use 'styles/media' as *;
 
 .user {
   block-size: 100%;
@@ -30,50 +30,50 @@
       background-size: 100% auto;
 
       &.login__bg {
-        background-image: url("../../../assets/images/auth/login@1x.webp");
+        background-image: url('../../../assets/images/auth/login@1x.webp');
 
         @media (resolution >= 2dppx) {
-          background-image: url("../../../assets/images/auth/login@1x.webp");
+          background-image: url('../../../assets/images/auth/login@1x.webp');
         }
 
         @media (resolution >= 3dppx) {
-          background-image: url("../../../assets/images/auth/login@1x.webp");
+          background-image: url('../../../assets/images/auth/login@1x.webp');
         }
       }
 
       &.register__bg {
-        background-image: url("../../../assets/images/auth/create@1x.webp");
+        background-image: url('../../../assets/images/auth/create@1x.webp');
 
         @media (resolution >= 2dppx) {
-          background-image: url("../../../assets/images/auth/create@1x.webp");
+          background-image: url('../../../assets/images/auth/create@1x.webp');
         }
 
         @media (resolution >= 3dppx) {
-          background-image: url("../../../assets/images/auth/create@1x.webp");
+          background-image: url('../../../assets/images/auth/create@1x.webp');
         }
       }
 
       &.forgot__bg {
-        background-image: url("../../../assets/images/auth/forgot@1x.webp");
+        background-image: url('../../../assets/images/auth/forgot@1x.webp');
 
         @media (resolution >= 2dppx) {
-          background-image: url("../../../assets/images/auth/forgot@1x.webp");
+          background-image: url('../../../assets/images/auth/forgot@1x.webp');
         }
 
         @media (resolution >= 3dppx) {
-          background-image: url("../../../assets/images/auth/forgot@1x.webp");
+          background-image: url('../../../assets/images/auth/forgot@1x.webp');
         }
       }
 
       &.otp__bg {
-        background-image: url("../../../assets/images/auth/otp@1x.webp");
+        background-image: url('../../../assets/images/auth/otp@1x.webp');
 
         @media (resolution >= 2dppx) {
-          background-image: url("../../../assets/images/auth/otp@1x.webp");
+          background-image: url('../../../assets/images/auth/otp@1x.webp');
         }
 
         @media (resolution >= 3dppx) {
-          background-image: url("../../../assets/images/auth/otp@1x.webp");
+          background-image: url('../../../assets/images/auth/otp@1x.webp');
         }
       }
     }
@@ -98,18 +98,18 @@
     justify-content: center;
     align-items: center;
 
-    @include fluid("gap", 24, 16, 1024);
+    @include fluid('gap', 24, 16, 1024);
   }
 
   &__title {
-    @include fluid("font-size", 30, 24, 1024);
+    @include fluid('font-size', 30, 24, 1024);
 
     margin-block-end: rem(4);
     text-align: center;
   }
 
   &__subtitle {
-    @include fluid("font-size", 18, 16, 1024);
+    @include fluid('font-size', 18, 16, 1024);
 
     text-align: center;
     text-wrap: balance;

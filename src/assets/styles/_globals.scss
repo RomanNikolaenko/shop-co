@@ -1,5 +1,5 @@
-@use "./mixins" as *;
-@use "./functions" as *;
+@use './mixins' as *;
+@use './functions' as *;
 
 body {
   display: flex;
@@ -38,22 +38,22 @@ h4 {
 
 h1,
 .h1 {
-  @include fluid("font-size", 64, 36);
+  @include fluid('font-size', 64, 36);
 }
 
 h2,
 .h2 {
-  @include fluid("font-size", 42, 30);
+  @include fluid('font-size', 42, 30);
 }
 
 h3,
 .h3 {
-  @include fluid("font-size", 28, 24);
+  @include fluid('font-size', 28, 24);
 }
 
 h4,
 .h4 {
-  @include fluid("font-size", 20, 18);
+  @include fluid('font-size', 20, 18);
 }
 
 .wrapper {

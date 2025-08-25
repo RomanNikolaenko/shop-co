@@ -4,27 +4,18 @@
   (focusout)="uiStateService.searchHasFocus.set(false)"
   (click)="onBackgroundClick($event)"
   class="search"
-  role="search"
->
+  role="search">
   <div class="search__inner">
     <form [formGroup]="form" (ngSubmit)="onSubmit()" class="search__form">
       <button
         class="search__btn search__submit"
         type="submit"
         [class.search__btn--disabled]="form.invalid"
-        [disabled]="form.invalid"
-      >
-        <span class="visually-hidden">{{ "search.perform" | translate }}</span>
-        <icon
-          name="search"
-          role="img"
-          aria-hidden="true"
-          class="search__btn-icon"
-        ></icon>
+        [disabled]="form.invalid">
+        <span class="visually-hidden">{{ 'search.perform' | translate }}</span>
+        <icon name="search" role="img" aria-hidden="true" class="search__btn-icon"></icon>
       </button>
-      <label for="search-input" class="visually-hidden">{{
-        "search.label" | translate
-      }}</label>
+      <label for="search-input" class="visually-hidden">{{ 'search.label' | translate }}</label>
       <input
         id="search-input"
         class="search__input"
@@ -33,48 +24,33 @@
         name="query"
         autocomplete="off"
         [attr.aria-label]="'search.input' | translate"
-        [placeholder]="'search.input' | translate"
-      />
+        [placeholder]="'search.input' | translate" />
       @if (showClearButton) {
-        <button
-          type="button"
-          class="search__btn search__clear"
-          (click)="clearQuery()"
-        >
-          <icon
-            name="close"
-            role="img"
-            aria-hidden="true"
-            class="search__btn-icon"
-          ></icon>
-          <span class="visually-hidden">{{ "search.clear" | translate }}</span>
+        <button type="button" class="search__btn search__clear" (click)="clearQuery()">
+          <icon name="close" role="img" aria-hidden="true" class="search__btn-icon"></icon>
+          <span class="visually-hidden">{{ 'search.clear' | translate }}</span>
         </button>
       }
     </form>
 
     @if (showSearchResults()) {
-      <div
-        [@flyInBottom]="screenWidth() >= 768 ? 'in' : null"
-        class="search__results"
-      >
+      <div [@flyInBottom]="screenWidth() >= 768 ? 'in' : null" class="search__results">
         <h3 class="search__results-title">
-          {{ "search.results" | translate }}
+          {{ 'search.results' | translate }}
         </h3>
         <div class="search__results-wrap">
           @if (filteredProducts.length > 0) {
             <ul class="search__results-list">
               @for (product of filteredProducts; track product) {
                 <li class="search__results-item">
-                  <a
-                    [routerLink]="[STATIC_ROUTES.HOME.RouterLink]"
-                    class="search__results-link text-decoration"
+                  <a [routerLink]="[STATIC_ROUTES.HOME.RouterLink]" class="search__results-link text-decoration"
                     ><span>{{ product }}</span></a
                   >
                 </li>
               }
             </ul>
           } @else {
-            <p>{{ "search.noResults" | translate }}</p>
+            <p>{{ 'search.noResults' | translate }}</p>
           }
         </div>
       </div>

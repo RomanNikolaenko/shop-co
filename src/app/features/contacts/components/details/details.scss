@@ -1,6 +1,6 @@
-@use "styles/mixins" as *;
-@use "styles/functions" as *;
-@use "styles/media" as *;
+@use 'styles/mixins' as *;
+@use 'styles/functions' as *;
+@use 'styles/media' as *;
 
 .details {
   display: grid;
@@ -25,14 +25,14 @@
   }
 
   &__title {
-    @include fluid("font-size", 22, 16);
+    @include fluid('font-size', 22, 16);
   }
 
   &__link {
     padding-bottom: rem(2);
     color: var(--color-gray-alt);
 
-    @include fluid("font-size", 20, 18);
+    @include fluid('font-size', 20, 18);
 
     &-ellipsis {
       max-inline-size: 100%;

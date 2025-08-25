@@ -1,6 +1,6 @@
-@use "styles/mixins" as *;
-@use "styles/functions" as *;
-@use "styles/media" as *;
+@use 'styles/mixins' as *;
+@use 'styles/functions' as *;
+@use 'styles/media' as *;
 
 .copyright {
   display: flex;
@@ -11,7 +11,7 @@
   padding-block-start: rem(16);
   border-block-start: rem(1) solid var(--color-gray-alt);
 
-  @include fluid("padding-block-end", 60, 40);
+  @include fluid('padding-block-end', 60, 40);
 
   @include mobile-above {
     justify-content: space-between;

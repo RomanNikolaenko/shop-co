@@ -101,9 +101,7 @@ export class Slider implements AfterViewInit {
               .replace('{{slidesLength}}', length.toString()),
         });
 
-        this.currentSlideLabel.set(
-          this.labels().slideLabel(0, this.slides.length),
-        );
+        this.currentSlideLabel.set(this.labels().slideLabel(0, this.slides.length));
       });
   }
 
@@ -111,9 +109,7 @@ export class Slider implements AfterViewInit {
     const swiper = this.swiperRef.nativeElement.swiper;
     swiper?.on('slideChange', () => {
       const index = swiper.realIndex ?? 0;
-      this.currentSlideLabel.set(
-        this.labels().slideLabel(index, this.slides.length),
-      );
+      this.currentSlideLabel.set(this.labels().slideLabel(index, this.slides.length));
     });
   }
 
@@ -123,9 +119,7 @@ export class Slider implements AfterViewInit {
       on: {
         slideChange: (swiper: Swiper) => {
           const index = swiper.realIndex ?? 0;
-          this.currentSlideLabel.set(
-            this.labels().slideLabel(index, this.slides.length),
-          );
+          this.currentSlideLabel.set(this.labels().slideLabel(index, this.slides.length));
         },
       },
     };

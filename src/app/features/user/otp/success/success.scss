@@ -1,5 +1,5 @@
-@use "styles/functions" as *;
-@use "styles/mixins" as *;
+@use 'styles/functions' as *;
+@use 'styles/mixins' as *;
 
 .success {
   width: 100%;
@@ -19,12 +19,7 @@
     border-radius: 50%;
     background-image:
       radial-gradient(circle, #131118 0, #131118 42%, transparent 43%),
-      radial-gradient(
-        circle,
-        rgb(19 17 24 / 10%) 0,
-        rgb(19 17 24 / 10%) 57%,
-        transparent 58%
-      ),
+      radial-gradient(circle, rgb(19 17 24 / 10%) 0, rgb(19 17 24 / 10%) 57%, transparent 58%),
       radial-gradient(circle, rgb(19 17 24 / 5%) 0, rgb(19 17 24 / 5%) 100%);
 
     @include fluid(width, 108, 86, 1024);

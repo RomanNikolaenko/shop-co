@@ -1,6 +1,6 @@
-@use "styles/functions" as *;
-@use "styles/mixins" as *;
-@use "styles/media" as *;
+@use 'styles/functions' as *;
+@use 'styles/mixins' as *;
+@use 'styles/media' as *;
 
 .form {
   &__container {
@@ -10,8 +10,8 @@
     border-radius: rem(20);
     background-color: var(--color-black);
 
-    @include fluid("padding-block", 34, 28);
-    @include fluid("padding-inline", 64, 20);
+    @include fluid('padding-block', 34, 28);
+    @include fluid('padding-inline', 64, 20);
 
     @include tablet-above {
       align-items: center;
@@ -19,7 +19,7 @@
     }
 
     &::before {
-      content: "";
+      content: '';
       position: absolute;
       z-index: -1;
       inset-block-start: 0;
@@ -38,7 +38,7 @@
     text-wrap: balance;
     color: var(--color-light);
 
-    @include fluid("font-size", 40, 24);
+    @include fluid('font-size', 40, 24);
 
     @include tablet {
       text-align: center;

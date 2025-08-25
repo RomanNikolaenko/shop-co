@@ -33,13 +33,9 @@
                 "input": "public"
               }
             ],
-            "styles": [
-              "src/styles.scss"
-            ],
+            "styles": ["src/styles.scss"],
             "stylePreprocessorOptions": {
-              "includePaths": [
-                "src/assets"
-              ]
+              "includePaths": ["src/assets"]
             },
             "server": "src/main.server.ts",
             "outputMode": "server",
@@ -103,9 +99,7 @@
                 "input": "public"
               }
             ],
-            "styles": [
-              "src/styles.scss"
-            ]
+            "styles": ["src/styles.scss"]
           }
         }
       }

@@ -4,20 +4,16 @@
     <div class="user__wrap">
       <a routerLink="/" class="user__back text-decoration">
         <icon name="arrow-back" role="img" aria-hidden="true"></icon>
-        <span>{{ "button.goHome" | translate }}</span>
+        <span>{{ 'button.goHome' | translate }}</span>
       </a>
 
-      <form
-        class="register__form user__form"
-        [formGroup]="form"
-        (ngSubmit)="onSubmit()"
-      >
+      <form class="register__form user__form" [formGroup]="form" (ngSubmit)="onSubmit()">
         <div class="register__text user__text">
           <h1 class="register__title user__title">
-            {{ "form.create.title" | translate }}
+            {{ 'form.create.title' | translate }}
           </h1>
           <p class="register__subtitle user__subtitle">
-            {{ "form.create.text" | translate }}
+            {{ 'form.create.text' | translate }}
           </p>
         </div>
 
@@ -27,8 +23,7 @@
           name="firstName"
           label="{{ 'form.firstName' | translate }}"
           type="text"
-          class="user__field"
-        ></form-field>
+          class="user__field"></form-field>
 
         <form-field
           [data]="form.get('lastName')!"
@@ -36,8 +31,7 @@
           name="lastName"
           label="{{ 'form.lastName' | translate }}"
           type="text"
-          class="user__field"
-        ></form-field>
+          class="user__field"></form-field>
 
         <form-field
           [data]="form.get('email')!"
@@ -45,8 +39,7 @@
           name="email"
           label="{{ 'form.email' | translate }}"
           type="email"
-          class="user__field"
-        ></form-field>
+          class="user__field"></form-field>
 
         <form-field
           [data]="form.get('password')!"
@@ -54,25 +47,20 @@
           name="password"
           label="{{ 'form.password' | translate }}"
           type="password"
-          class="register__field user__field"
-        ></form-field>
+          class="register__field user__field"></form-field>
 
         <button
           [disabled]="form.invalid || loading"
           [ngClass]="containerClasses"
           class="user__submit btn btn__black"
-          type="submit"
-        >
-          <span class="btn__text">{{ "button.send" | translate }}</span>
+          type="submit">
+          <span class="btn__text">{{ 'button.send' | translate }}</span>
         </button>
 
         <p class="user__account">
-          {{ "form.haveAccount" | translate }}
-          <a
-            [routerLink]="[STATIC_ROUTES.USER.CH.LOGIN.RouterLink]"
-            class="form-auth__link text-decoration"
-          >
-            <span>{{ "form.loginTitle" | translate }}</span>
+          {{ 'form.haveAccount' | translate }}
+          <a [routerLink]="[STATIC_ROUTES.USER.CH.LOGIN.RouterLink]" class="form-auth__link text-decoration">
+            <span>{{ 'form.loginTitle' | translate }}</span>
           </a>
         </p>
       </form>

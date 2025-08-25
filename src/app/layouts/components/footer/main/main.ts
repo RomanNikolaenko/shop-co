@@ -24,12 +24,7 @@ export class Main {
     },
     {
       title: 'Help',
-      list: [
-        'Customer Support',
-        'Delivery Details',
-        'Terms & Conditions',
-        'Privacy Policy',
-      ],
+      list: ['Customer Support', 'Delivery Details', 'Terms & Conditions', 'Privacy Policy'],
     },
     {
       title: 'FAQ',
@@ -37,12 +32,7 @@ export class Main {
     },
     {
       title: 'Resources',
-      list: [
-        'Free eBooks',
-        'Development Tutorial',
-        'How to - Blog',
-        'Youtube Playlist',
-      ],
+      list: ['Free eBooks', 'Development Tutorial', 'How to - Blog', 'Youtube Playlist'],
     },
   ];
 }

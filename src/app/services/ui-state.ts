@@ -21,10 +21,7 @@ export class UiStateService {
   private readonly platformId = inject(PLATFORM_ID);
   private readonly isBrowser = isPlatformBrowser(this.platformId);
   private readonly destroyRef = inject(DestroyRef);
-  private readonly renderer = inject(RendererFactory2).createRenderer(
-    null,
-    null,
-  );
+  private readonly renderer = inject(RendererFactory2).createRenderer(null, null);
 
   private readonly router = inject(Router);
 
@@ -33,22 +30,16 @@ export class UiStateService {
 
   readonly showMenu: WritableSignal<boolean> = signal(false);
   readonly addClassMenu: WritableSignal<boolean> = signal(false);
-  readonly screenWidthMenu: WritableSignal<number> = signal(
-    this.isBrowser ? window.innerWidth : this.mobileBreakpointMenu,
-  );
+  readonly screenWidthMenu: WritableSignal<number> = signal(this.isBrowser ? window.innerWidth : this.mobileBreakpointMenu);
 
   readonly showFormSearch: WritableSignal<boolean> = signal(false);
   readonly showBtnSearch: WritableSignal<boolean> = signal(false);
   readonly searchHasFocus: WritableSignal<boolean> = signal(false);
   readonly addClassSearch: WritableSignal<boolean> = signal(false);
   readonly querySignal: WritableSignal<string> = signal('');
-  readonly showSearchResults = computed(
-    () => this.querySignal().trim().length > 0 && this.searchHasFocus(),
-  );
+  readonly showSearchResults = computed(() => this.querySignal().trim().length > 0 && this.searchHasFocus());
 
-  readonly screenWidthSearch: WritableSignal<number> = signal(
-    this.isBrowser ? window.innerWidth : this.mobileBreakpointSearch,
-  );
+  readonly screenWidthSearch: WritableSignal<number> = signal(this.isBrowser ? window.innerWidth : this.mobileBreakpointSearch);
 
   private readonly previousShowForm = signal(this.showFormSearch());
 
@@ -57,15 +48,10 @@ export class UiStateService {
 
     effect(() => {
       const shouldLock =
-        (this.showMenu() &&
-          this.screenWidthMenu() < this.mobileBreakpointMenu) ||
-        (this.showFormSearch() &&
-          this.screenWidthSearch() < this.mobileBreakpointSearch);
+        (this.showMenu() && this.screenWidthMenu() < this.mobileBreakpointMenu) ||
+        (this.showFormSearch() && this.screenWidthSearch() < this.mobileBreakpointSearch);
 
-      this.renderer[shouldLock ? 'addClass' : 'removeClass'](
-        document.body,
-        'lock',
-      );
+      this.renderer[shouldLock ? 'addClass' : 'removeClass'](document.body, 'lock');
     });
 
     effect(() => {
@@ -88,34 +74,22 @@ export class UiStateService {
     fromEvent<KeyboardEvent>(window, 'keydown')
       .pipe(takeUntilDestroyed(this.destroyRef))
       .subscribe((event) => {
-        if (
-          this.screenWidthSearch() < this.mobileBreakpointSearch &&
-          event.key === 'Escape'
-        ) {
+        if (this.screenWidthSearch() < this.mobileBreakpointSearch && event.key === 'Escape') {
           this.closeSearch();
         }
       });
 
     fromEvent(window, 'resize')
-      .pipe(
-        debounceTime(150),
-        startWith(null),
-        takeUntilDestroyed(this.destroyRef),
-      )
+      .pipe(debounceTime(150), startWith(null), takeUntilDestroyed(this.destroyRef))
       .subscribe(() => {
         this.updateScreenWidth(window.innerWidth);
       });
 
-    this.router.events
-      .pipe(takeUntilDestroyed(this.destroyRef))
-      .subscribe((event) => {
-        if (
-          event instanceof NavigationStart ||
-          event instanceof NavigationEnd
-        ) {
-          this.showMenuFn(this.screenWidthMenu());
-        }
-      });
+    this.router.events.pipe(takeUntilDestroyed(this.destroyRef)).subscribe((event) => {
+      if (event instanceof NavigationStart || event instanceof NavigationEnd) {
+        this.showMenuFn(this.screenWidthMenu());
+      }
+    });
   }
 
   updateScreenWidth(width: number): void {

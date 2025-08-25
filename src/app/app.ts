@@ -1,11 +1,5 @@
 import { isPlatformBrowser } from '@angular/common';
-import {
-  Component,
-  ChangeDetectionStrategy,
-  inject,
-  effect,
-  PLATFORM_ID,
-} from '@angular/core';
+import { Component, ChangeDetectionStrategy, inject, effect, PLATFORM_ID } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 
 import { LanguageService } from '^services/language';

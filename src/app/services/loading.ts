@@ -17,16 +17,14 @@ export class LoadingService {
       this.isLoading.set(true);
     });
 
-    this.router.events
-      .pipe(takeUntilDestroyed(this.destroyRef))
-      .subscribe((event: Event) => {
-        if (event instanceof NavigationStart) {
-          this.isLoading.set(true);
-        }
+    this.router.events.pipe(takeUntilDestroyed(this.destroyRef)).subscribe((event: Event) => {
+      if (event instanceof NavigationStart) {
+        this.isLoading.set(true);
+      }
 
-        if (event instanceof NavigationEnd) {
-          this.isLoading.set(false);
-        }
-      });
+      if (event instanceof NavigationEnd) {
+        this.isLoading.set(false);
+      }
+    });
   }
 }

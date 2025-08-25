@@ -1,5 +1,5 @@
 <div class="form__container">
-  <h2 class="form__title">{{ "footer.form.title" | translate }}</h2>
+  <h2 class="form__title">{{ 'footer.form.title' | translate }}</h2>
 
   <form class="form footer__form" [formGroup]="form" (ngSubmit)="onSubmit()">
     <form-field
@@ -8,16 +8,10 @@
       name="email"
       label="{{ 'footer.form.email' | translate }}"
       type="email"
-      class="form__field"
-    ></form-field>
+      class="form__field"></form-field>
 
-    <button
-      [disabled]="form.invalid || loading"
-      [ngClass]="containerClasses"
-      class="form__submit btn btn__white"
-      type="submit"
-    >
-      <span class="btn__text">{{ "footer.form.btn" | translate }}</span>
+    <button [disabled]="form.invalid || loading" [ngClass]="containerClasses" class="form__submit btn btn__white" type="submit">
+      <span class="btn__text">{{ 'footer.form.btn' | translate }}</span>
     </button>
   </form>
 </div>

@@ -1,6 +1,6 @@
-@use "styles/functions" as *;
-@use "styles/mixins" as *;
-@use "styles/media" as *;
+@use 'styles/functions' as *;
+@use 'styles/mixins' as *;
+@use 'styles/media' as *;
 
 .nav {
   block-size: 100%;

@@ -1,14 +1,5 @@
 import { isPlatformBrowser } from '@angular/common';
-import {
-  ChangeDetectionStrategy,
-  Component,
-  computed,
-  DestroyRef,
-  inject,
-  OnInit,
-  PLATFORM_ID,
-  signal,
-} from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, DestroyRef, inject, OnInit, PLATFORM_ID, signal } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { RouterModule, RouterLink } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
@@ -42,9 +33,7 @@ export class Actions implements OnInit {
   protected showLangSelect = signal(true);
   protected showBreakpoint = 450;
 
-  protected isCart = computed(
-    () => this.currentRoute() === STATIC_ROUTES.SHOP.CH.CART.RouterLink,
-  );
+  protected isCart = computed(() => this.currentRoute() === STATIC_ROUTES.SHOP.CH.CART.RouterLink);
 
   get showFormSearch() {
     return this.uiStateService.showFormSearch;

@@ -6,37 +6,22 @@
   role="button"
   [attr.aria-haspopup]="'listbox'"
   [attr.aria-expanded]="isOpen()"
-  [attr.aria-label]="'langSelect.ariaLabel' | translate"
->
+  [attr.aria-label]="'langSelect.ariaLabel' | translate">
   <div class="select__trigger" (click)="toggleDropdown()">
-    {{ currentLang()?.viewValue || "Select language" }}
-    <icon
-      [class.select__arrow--open]="isOpen()"
-      name="arrow-down"
-      role="img"
-      aria-hidden="true"
-      class="select__arrow"
-    ></icon>
+    {{ currentLang()?.viewValue || 'Select language' }}
+    <icon [class.select__arrow--open]="isOpen()" name="arrow-down" role="img" aria-hidden="true" class="select__arrow"></icon>
   </div>
 
   @if (isOpen()) {
-    <ul
-      @flyInBottom
-      class="select__options"
-      role="listbox"
-      [attr.aria-activedescendant]="'option-' + focusedIndex()"
-    >
+    <ul @flyInBottom class="select__options" role="listbox" [attr.aria-activedescendant]="'option-' + focusedIndex()">
       @for (lang of langs(); let i = $index; track lang.value) {
         <li
           class="select__option"
           (click)="selectLang(lang.value)"
-          [class.select__option--selected]="
-            lang.value === languageService.currentLang()
-          "
+          [class.select__option--selected]="lang.value === languageService.currentLang()"
           [class.select__option--focused]="focusedIndex() === i"
           [attr.aria-selected]="lang.value === languageService.currentLang()"
-          role="option"
-        >
+          role="option">
           {{ lang.viewValue }}
         </li>
       }

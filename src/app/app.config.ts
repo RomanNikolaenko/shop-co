@@ -5,10 +5,7 @@ import {
   provideBrowserGlobalErrorListeners,
   provideZonelessChangeDetection,
 } from '@angular/core';
-import {
-  provideClientHydration,
-  withEventReplay,
-} from '@angular/platform-browser';
+import { provideClientHydration, withEventReplay } from '@angular/platform-browser';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import {
   InMemoryScrollingFeature,
@@ -33,19 +30,13 @@ const scrollConfig: InMemoryScrollingOptions = {
   anchorScrolling: 'enabled',
 };
 
-const inMemoryScrollingFeature: InMemoryScrollingFeature =
-  withInMemoryScrolling(scrollConfig);
+const inMemoryScrollingFeature: InMemoryScrollingFeature = withInMemoryScrolling(scrollConfig);
 
 export const appConfig: ApplicationConfig = {
   providers: [
     provideBrowserGlobalErrorListeners(),
     provideZonelessChangeDetection(),
-    provideRouter(
-      routes,
-      withViewTransitions(),
-      withPreloading(PreloadAllModules),
-      inMemoryScrollingFeature,
-    ),
+    provideRouter(routes, withViewTransitions(), withPreloading(PreloadAllModules), inMemoryScrollingFeature),
     provideHttpClient(withFetch()),
     importProvidersFrom(
       HttpClient,

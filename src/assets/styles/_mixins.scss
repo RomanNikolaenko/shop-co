@@ -1,11 +1,10 @@
-@use "./functions" as *;
+@use './functions' as *;
 
 @mixin fluid($property, $maxSize, $minSize, $maxWidth: 1440, $minWidth: 320) {
   #{$property}: clamp(
     #{($minSize / 16)}rem,
     calc(
-      #{($minSize / 16)}rem + (#{$maxSize} - #{$minSize}) *
-        ((100vw - #{($minWidth / 16)}rem) / (#{$maxWidth} - #{$minWidth}))
+      #{($minSize / 16)}rem + (#{$maxSize} - #{$minSize}) * ((100vw - #{($minWidth / 16)}rem) / (#{$maxWidth} - #{$minWidth}))
     ),
     #{($maxSize / 16)}rem
   );
@@ -66,8 +65,8 @@
   }
 }
 
-@mixin retina-bg($name, $ext: "webp", $path: "assets", $all: true) {
-  background-image: url("#{$path}/#{$name}@1x.#{$ext}");
+@mixin retina-bg($name, $ext: 'webp', $path: 'assets', $all: true) {
+  background-image: url('#{$path}/#{$name}@1x.#{$ext}');
 
   @if ($all) {
     background-size: cover;
@@ -76,10 +75,10 @@
   }
 
   @media (min-resolution: 2dppx) {
-    background-image: url("#{$path}/#{$name}@2x.#{$ext}");
+    background-image: url('#{$path}/#{$name}@2x.#{$ext}');
   }
 
   @media (min-resolution: 3dppx) {
-    background-image: url("#{$path}/#{$name}@3x.#{$ext}");
+    background-image: url('#{$path}/#{$name}@3x.#{$ext}');
   }
 }

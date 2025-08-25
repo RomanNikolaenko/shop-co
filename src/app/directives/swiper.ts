@@ -1,12 +1,5 @@
 import { isPlatformBrowser } from '@angular/common';
-import {
-  AfterViewInit,
-  Directive,
-  ElementRef,
-  inject,
-  Input,
-  PLATFORM_ID,
-} from '@angular/core';
+import { AfterViewInit, Directive, ElementRef, inject, Input, PLATFORM_ID } from '@angular/core';
 import { SwiperOptions } from 'swiper/types';
 
 @Directive({

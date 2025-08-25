@@ -4,20 +4,16 @@
     <div class="user__wrap">
       <a routerLink="/" class="user__back text-decoration">
         <icon name="arrow-back" role="img" aria-hidden="true"></icon>
-        <span>{{ "button.goHome" | translate }}</span>
+        <span>{{ 'button.goHome' | translate }}</span>
       </a>
 
-      <form
-        class="login__form user__form"
-        [formGroup]="form"
-        (ngSubmit)="onSubmit()"
-      >
+      <form class="login__form user__form" [formGroup]="form" (ngSubmit)="onSubmit()">
         <div class="login__text user__text">
           <h1 class="login__title user__title">
-            {{ "form.login.title" | translate }}
+            {{ 'form.login.title' | translate }}
           </h1>
           <p class="login__subtitle user__subtitle">
-            {{ "form.login.text" | translate }}
+            {{ 'form.login.text' | translate }}
           </p>
         </div>
 
@@ -27,8 +23,7 @@
           name="email"
           label="{{ 'form.email' | translate }}"
           type="email"
-          class="user__field"
-        ></form-field>
+          class="user__field"></form-field>
 
         <form-field
           [data]="form.get('password')!"
@@ -36,15 +31,11 @@
           name="password"
           label="{{ 'form.password' | translate }}"
           type="password"
-          class="login__field user__field"
-        ></form-field>
+          class="login__field user__field"></form-field>
 
         <div class="login__forgot">
-          <a
-            [routerLink]="[STATIC_ROUTES.USER.CH.FORGOT.RouterLink]"
-            class="text-decoration"
-          >
-            <span>{{ "form.forgotPassword" | translate }}</span>
+          <a [routerLink]="[STATIC_ROUTES.USER.CH.FORGOT.RouterLink]" class="text-decoration">
+            <span>{{ 'form.forgotPassword' | translate }}</span>
           </a>
         </div>
 
@@ -52,18 +43,14 @@
           [disabled]="form.invalid || loading"
           [ngClass]="containerClasses"
           class="user__submit btn btn__black"
-          type="submit"
-        >
-          <span class="btn__text">{{ "button.send" | translate }}</span>
+          type="submit">
+          <span class="btn__text">{{ 'button.send' | translate }}</span>
         </button>
 
         <p class="user__account">
-          {{ "form.notAccount" | translate }}
-          <a
-            [routerLink]="[STATIC_ROUTES.USER.CH.REGISTER.RouterLink]"
-            class="form-auth__link text-decoration"
-          >
-            <span>{{ "form.registerTitle" | translate }}</span>
+          {{ 'form.notAccount' | translate }}
+          <a [routerLink]="[STATIC_ROUTES.USER.CH.REGISTER.RouterLink]" class="form-auth__link text-decoration">
+            <span>{{ 'form.registerTitle' | translate }}</span>
           </a>
         </p>
       </form>

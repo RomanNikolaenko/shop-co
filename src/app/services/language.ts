@@ -1,13 +1,5 @@
 import { DOCUMENT, isPlatformBrowser } from '@angular/common';
-import {
-  Injectable,
-  PLATFORM_ID,
-  inject,
-  signal,
-  WritableSignal,
-  effect,
-  DestroyRef,
-} from '@angular/core';
+import { Injectable, PLATFORM_ID, inject, signal, WritableSignal, effect, DestroyRef } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { TranslateService } from '@ngx-translate/core';
 

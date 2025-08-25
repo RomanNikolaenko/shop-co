@@ -1,9 +1,4 @@
-<article
-  [ngClass]="containerClasses"
-  class="accordion"
-  itemscope
-  itemtype="https://schema.org/SiteNavigationElement"
->
+<article [ngClass]="containerClasses" class="accordion" itemscope itemtype="https://schema.org/SiteNavigationElement">
   <h3 class="accordion__title">
     <button
       (click)="toggle()"
@@ -12,27 +7,16 @@
       [attr.aria-controls]="'section-' + index"
       [attr.id]="'accordion-btn-' + index"
       [disabled]="!isMobile()"
-      [attr.tabindex]="!isMobile() ? -1 : null"
-    >
+      [attr.tabindex]="!isMobile() ? -1 : null">
       <span class="accordion__text" itemprop="name">{{ data?.title }}</span>
 
       @if (isMobile()) {
-        <icon
-          name="arrow-down"
-          role="img"
-          aria-hidden="true"
-          class="accordion__icon"
-        ></icon>
+        <icon name="arrow-down" role="img" aria-hidden="true" class="accordion__icon"></icon>
       }
     </button>
   </h3>
 
-  <div
-    class="accordion__content"
-    role="region"
-    [attr.aria-labelledby]="'accordion-btn-' + index"
-    [attr.id]="'section-' + index"
-  >
+  <div class="accordion__content" role="region" [attr.aria-labelledby]="'accordion-btn-' + index" [attr.id]="'section-' + index">
     <ul class="accordion__list">
       @for (item of data?.list; track $index) {
         <li class="accordion__item">

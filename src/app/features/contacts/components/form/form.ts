@@ -1,11 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
-import {
-  FormBuilder,
-  FormControl,
-  ReactiveFormsModule,
-  Validators,
-} from '@angular/forms';
+import { FormBuilder, FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
 import { TranslateModule } from '@ngx-translate/core';
 
 import { FormField } from '^shared/components/form-field/form-field';
@@ -13,13 +8,7 @@ import { Icon } from '^shared/components/icon/icon';
 
 @Component({
   selector: 'app-form',
-  imports: [
-    CommonModule,
-    ReactiveFormsModule,
-    FormField,
-    TranslateModule,
-    Icon,
-  ],
+  imports: [CommonModule, ReactiveFormsModule, FormField, TranslateModule, Icon],
   standalone: true,
   templateUrl: './form.html',
   styleUrl: './form.scss',
@@ -32,8 +21,7 @@ export class Form {
 
   get containerClasses() {
     return {
-      btn__disabled:
-        this.form.invalid || this.loading || !this.form.controls['terms'].value,
+      btn__disabled: this.form.invalid || this.loading || !this.form.controls['terms'].value,
       btn__load: this.loading,
     };
   }
@@ -41,10 +29,7 @@ export class Form {
   protected form = this.formBuilder.nonNullable.group({
     name: new FormControl<string>('', [Validators.required]),
     email: new FormControl<string>('', [Validators.required, Validators.email]),
-    message: new FormControl<string>('', [
-      Validators.required,
-      Validators.minLength(40),
-    ]),
+    message: new FormControl<string>('', [Validators.required, Validators.minLength(40)]),
     terms: new FormControl<boolean>(false, [Validators.required]),
   });
 

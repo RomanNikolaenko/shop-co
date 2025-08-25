@@ -5,8 +5,7 @@ import { STATIC_ROUTES } from '^core/static-routes';
 export const userRoutes: Routes = [
   {
     path: '',
-    loadComponent: () =>
-      import('^layouts/auth-layout').then((com) => com.AuthLayout),
+    loadComponent: () => import('^layouts/auth-layout').then((com) => com.AuthLayout),
     children: [
       { path: '', redirectTo: 'login', pathMatch: 'full' },
       {
@@ -17,8 +16,7 @@ export const userRoutes: Routes = [
       {
         path: `${STATIC_ROUTES.USER.CH.REGISTER.Path}`,
         title: `${STATIC_ROUTES.USER.CH.REGISTER.Title}`,
-        loadComponent: () =>
-          import('./register/register').then((m) => m.Register),
+        loadComponent: () => import('./register/register').then((m) => m.Register),
       },
       {
         path: `${STATIC_ROUTES.USER.CH.FORGOT.Path}`,

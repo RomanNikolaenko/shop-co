@@ -1,4 +1,4 @@
-@use "./functions" as *;
+@use './functions' as *;
 
 :root {
   --color-black: #000000;
@@ -14,7 +14,7 @@
   --warning: #ee8d33;
   --success: #2bad34;
 
-  --font-family-base: "Roboto", sans-serif;
+  --font-family-base: 'Roboto', sans-serif;
 
   --container-width: #{(1440 / 16)}rem;
   --container-padding-x: #{(20 / 16)}rem;

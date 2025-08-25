@@ -1,6 +1,6 @@
-@use "styles/functions" as *;
-@use "styles/mixins" as *;
-@use "styles/media" as *;
+@use 'styles/functions' as *;
+@use 'styles/mixins' as *;
+@use 'styles/media' as *;
 
 :host {
   position: sticky;
@@ -25,7 +25,7 @@
     align-items: center;
     padding-block: rem(12);
 
-    @include fluid("gap", 40, 20);
+    @include fluid('gap', 40, 20);
 
     @include tablet-above {
       padding-block: rem(18);
@@ -48,7 +48,7 @@
     display: inline-block;
     flex: 0 0 auto;
 
-    @include fluid("inline-size", 160, 100);
+    @include fluid('inline-size', 160, 100);
   }
 
   &__menu {
@@ -62,8 +62,7 @@
     }
 
     &--transition {
-      transition: all var(--transition-duration)
-        var(--transition-timing-function);
+      transition: all var(--transition-duration) var(--transition-timing-function);
     }
 
     @media (min-width: #{$min-width}) and (max-width: #{$max-width}) {
@@ -113,8 +112,7 @@
     }
 
     &--transition {
-      transition: all var(--transition-duration)
-        var(--transition-timing-function);
+      transition: all var(--transition-duration) var(--transition-timing-function);
     }
   }
 

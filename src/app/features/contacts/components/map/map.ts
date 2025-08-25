@@ -18,17 +18,19 @@ import { fromLonLat } from 'ol/proj';
   standalone: true,
   imports: [CommonModule, TranslateModule],
   templateUrl: './map.html',
-  styleUrl: './map.scss',
+  styleUrls: ['./map.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class Map implements AfterViewInit {
+export class MapWidget implements AfterViewInit {
   private readonly renderer = inject(Renderer2);
   private readonly platformId = inject(PLATFORM_ID);
   private readonly isBrowser = isPlatformBrowser(this.platformId);
 
   protected mapLock = signal(true);
 
-  @ViewChild('mapContainer', { static: true }) private mapContainer!: ElementRef;
+  protected mapInstance?: unknown;
+
+  @ViewChild('mapContainer', { static: true }) private mapContainer!: ElementRef<HTMLElement>;
 
   get containerClasses() {
     return {
@@ -50,13 +52,16 @@ export class Map implements AfterViewInit {
   }
 
   private async initMap() {
-    const [{ Map, View }, TileLayer, OSM] = await Promise.all([
+    const [{ Map, View }, TileLayerModule, OSMModule] = await Promise.all([
       import('ol'),
-      import('ol/layer/Tile').then(m => m.default),
-      import('ol/source/OSM').then(m => m.default)
+      import('ol/layer/Tile'),
+      import('ol/source/OSM'),
     ]);
 
-    new Map({
+    const TileLayer = TileLayerModule.default;
+    const OSM = OSMModule.default;
+
+    this.mapInstance = new Map({
       target: this.mapContainer.nativeElement,
       layers: [
         new TileLayer({

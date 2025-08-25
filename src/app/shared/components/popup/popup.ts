@@ -32,9 +32,7 @@ import { Icon } from '../icon/icon';
   animations: [popupAnim],
 })
 export class Popup<T extends object = object> implements AfterViewInit {
-  private readonly renderer: Renderer2 = inject(
-    RendererFactory2,
-  ).createRenderer(null, null);
+  private readonly renderer: Renderer2 = inject(RendererFactory2).createRenderer(null, null);
 
   private readonly destroyRef = inject(DestroyRef);
 

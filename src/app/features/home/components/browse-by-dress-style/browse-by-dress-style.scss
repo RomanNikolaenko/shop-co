@@ -1,15 +1,15 @@
-@use "styles/mixins" as *;
-@use "styles/functions" as *;
-@use "styles/media" as *;
+@use 'styles/mixins' as *;
+@use 'styles/functions' as *;
+@use 'styles/media' as *;
 
 .browse {
   &__container {
     background-color: var(--color-gray-alt);
 
-    @include fluid("border-radius", 40, 20);
-    @include fluid("margin-block-start", 80, 40);
-    @include fluid("padding-inline", 60, 20);
-    @include fluid("padding-block", 70, 32);
+    @include fluid('border-radius', 40, 20);
+    @include fluid('margin-block-start', 80, 40);
+    @include fluid('padding-inline', 60, 20);
+    @include fluid('padding-block', 70, 32);
   }
 
   &__title {
@@ -19,7 +19,7 @@
     text-wrap: balance;
     color: var(--color-light);
 
-    @include fluid("margin-block-end", 64, 24);
+    @include fluid('margin-block-end', 64, 24);
   }
 
   &__list {
@@ -39,7 +39,7 @@
     transition-property: box-shadow;
     overflow: hidden;
 
-    @include fluid("max-block-size", 290, 190);
+    @include fluid('max-block-size', 290, 190);
 
     @include tablet-above {
       @for $i from 1 through 4 {
@@ -70,9 +70,9 @@
     font-weight: 700;
     color: inherit;
 
-    @include fluid("font-size", 36, 24);
-    @include fluid("inset-block", 25, 16);
-    @include fluid("inset-inline", 36, 24);
+    @include fluid('font-size', 36, 24);
+    @include fluid('inset-block', 25, 16);
+    @include fluid('inset-inline', 36, 24);
   }
 
   &__item-img {
@@ -80,7 +80,6 @@
     inline-size: 100%;
     object-fit: cover;
     object-position: center center;
-    transition: scale var(--transition-duration)
-      var(--transition-timing-function);
+    transition: scale var(--transition-duration) var(--transition-timing-function);
   }
 }

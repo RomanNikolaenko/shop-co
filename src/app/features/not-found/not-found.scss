@@ -1,5 +1,5 @@
-@use "styles/mixins" as *;
-@use "styles/functions" as *;
+@use 'styles/mixins' as *;
+@use 'styles/functions' as *;
 
 .error {
   inline-size: 100%;
@@ -16,14 +16,14 @@
     margin-block-end: rem(8);
     font-weight: 700;
 
-    @include fluid("font-size", 97, 72, 768);
+    @include fluid('font-size', 97, 72, 768);
   }
 
   &__title {
     font-weight: 400;
     text-align: center;
 
-    @include fluid("font-size", 40, 24, 768);
+    @include fluid('font-size', 40, 24, 768);
 
     @supports (text-wrap: balance) {
       max-inline-size: rem(550);
@@ -41,6 +41,6 @@
     font-weight: 300;
     text-align: center;
 
-    @include fluid("font-size", 17, 15, 768);
+    @include fluid('font-size', 17, 15, 768);
   }
 }

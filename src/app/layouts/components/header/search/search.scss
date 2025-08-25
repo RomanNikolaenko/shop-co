@@ -1,6 +1,6 @@
-@use "styles/mixins" as *;
-@use "styles/functions" as *;
-@use "styles/media" as *;
+@use 'styles/mixins' as *;
+@use 'styles/functions' as *;
+@use 'styles/media' as *;
 
 .search {
   display: flex;
@@ -22,8 +22,7 @@
     border: rem(1) solid var(--color-gray);
     border-radius: 100vmax;
     background-color: var(--color-gray);
-    transition: border var(--transition-duration)
-      var(--transition-timing-function);
+    transition: border var(--transition-duration) var(--transition-timing-function);
     overflow: hidden;
 
     @include mobile {

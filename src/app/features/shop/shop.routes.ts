@@ -5,8 +5,7 @@ import { STATIC_ROUTES } from '^core/static-routes';
 export const shopRoutes: Routes = [
   {
     path: '',
-    loadComponent: () =>
-      import('^layouts/main-layout').then((com) => com.MainLayout),
+    loadComponent: () => import('^layouts/main-layout').then((com) => com.MainLayout),
     children: [
       { path: '', redirectTo: 'cart', pathMatch: 'full' },
       {
@@ -17,8 +16,7 @@ export const shopRoutes: Routes = [
       {
         path: `${STATIC_ROUTES.SHOP.CH.CHECKOUT.Path}`,
         title: `${STATIC_ROUTES.SHOP.CH.CHECKOUT.Title}`,
-        loadComponent: () =>
-          import('./checkout/checkout').then((m) => m.Checkout),
+        loadComponent: () => import('./checkout/checkout').then((m) => m.Checkout),
       },
     ],
   },

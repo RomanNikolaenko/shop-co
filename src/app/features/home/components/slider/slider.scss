@@ -1,18 +1,18 @@
-@forward "swiper/scss";
+@forward 'swiper/scss';
 
-@use "styles/mixins" as *;
-@use "styles/functions" as *;
-@use "styles/media" as *;
+@use 'styles/mixins' as *;
+@use 'styles/functions' as *;
+@use 'styles/media' as *;
 
 .customers {
-  @include fluid("margin-block-start", 80, 40);
+  @include fluid('margin-block-start', 80, 40);
 
   &__title {
     font-weight: 700;
     text-transform: uppercase;
     text-wrap: balance;
 
-    @include fluid("margin-block-end", 40, 24);
+    @include fluid('margin-block-end', 40, 24);
   }
 
   &__wrap {
@@ -42,8 +42,7 @@
       outline: none;
       background-color: var(--color-light);
       opacity: 0.2;
-      transition: all var(--transition-duration)
-        var(--transition-timing-function);
+      transition: all var(--transition-duration) var(--transition-timing-function);
       transform: translateY(-50%);
 
       @include interactive {
@@ -54,11 +53,11 @@
   }
 
   &__prev {
-    @include fluid("inset-inline-start", 12, -8);
+    @include fluid('inset-inline-start', 12, -8);
   }
 
   &__next {
-    @include fluid("inset-inline-end", 12, -8);
+    @include fluid('inset-inline-end', 12, -8);
   }
 }
 
@@ -69,5 +68,5 @@
   border: rem(1) solid var(--color-gray);
   border-radius: rem(20);
 
-  @include fluid("padding", 32, 20);
+  @include fluid('padding', 32, 20);
 }

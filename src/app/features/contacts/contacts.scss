@@ -1,9 +1,9 @@
-@use "styles/mixins" as *;
-@use "styles/functions" as *;
-@use "styles/media" as *;
+@use 'styles/mixins' as *;
+@use 'styles/functions' as *;
+@use 'styles/media' as *;
 
 .contacts {
-  @include fluid("margin-block-start", 70, 30);
+  @include fluid('margin-block-start', 70, 30);
 
   &__container {
     display: grid;
@@ -14,7 +14,7 @@
     line-height: 1.1;
     text-wrap: balance;
 
-    @include fluid("font-size", 56, 30);
+    @include fluid('font-size', 56, 30);
   }
 
   &__wrap {

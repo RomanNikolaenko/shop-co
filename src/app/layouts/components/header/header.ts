@@ -22,31 +22,26 @@ export class Header {
 
   protected readonly showFormSearch = this.uiStateService.showFormSearch;
   protected readonly screenWidthSearch = this.uiStateService.screenWidthSearch;
-  protected readonly mobileBreakpointSearch =
-    this.uiStateService.mobileBreakpointSearch;
+  protected readonly mobileBreakpointSearch = this.uiStateService.mobileBreakpointSearch;
 
   protected readonly addClassSearch = this.uiStateService.addClassSearch;
 
   protected readonly showMenu = this.uiStateService.showMenu;
   protected readonly screenWidthMenu = this.uiStateService.screenWidthMenu;
-  protected readonly mobileBreakpointMenu =
-    this.uiStateService.mobileBreakpointMenu;
+  protected readonly mobileBreakpointMenu = this.uiStateService.mobileBreakpointMenu;
 
   protected readonly addClassMenu = this.uiStateService.addClassMenu;
 
   get containerClassesMenu() {
     return {
-      'header__menu--active':
-        this.showMenu() && this.screenWidthMenu() < this.mobileBreakpointMenu,
+      'header__menu--active': this.showMenu() && this.screenWidthMenu() < this.mobileBreakpointMenu,
       'header__menu--transition': this.addClassMenu(),
     };
   }
 
   get containerClassesSearch() {
     return {
-      'header__search--active':
-        this.showFormSearch() &&
-        this.screenWidthSearch() < this.mobileBreakpointSearch,
+      'header__search--active': this.showFormSearch() && this.screenWidthSearch() < this.mobileBreakpointSearch,
       'header__search--transition': this.addClassSearch(),
     };
   }

@@ -6,8 +6,7 @@
   (click)="onBackdropClick($event)"
   (touchstart)="onTouchStart($event)"
   (touchend)="onTouchEnd($event)"
-  [@popupAnimation]="animationState()"
->
+  [@popupAnimation]="animationState()">
   <div class="popup" tabindex="-1" cdkTrapFocus cdkTrapFocusAutoCapture>
     <header class="popup__header">
       <h2 id="popup-title" class="visually-hidden">Popup</h2>

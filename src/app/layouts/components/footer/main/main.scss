@@ -1,21 +1,21 @@
-@use "styles/mixins" as *;
-@use "styles/functions" as *;
-@use "styles/media" as *;
+@use 'styles/mixins' as *;
+@use 'styles/functions' as *;
+@use 'styles/media' as *;
 
 .main {
   display: grid;
   row-gap: rem(24);
 
-  @include fluid("column-gap", 115, 30, 1440, 768);
-  @include fluid("margin-block-start", 50, 40);
-  @include fluid("margin-block-end", 35, 25);
+  @include fluid('column-gap', 115, 30, 1440, 768);
+  @include fluid('margin-block-start', 50, 40);
+  @include fluid('margin-block-end', 35, 25);
 
   @include tablet-above {
     grid-template-columns: rem(250) 1fr;
   }
 
   &__logo {
-    @include fluid("inline-size", 160, 140);
+    @include fluid('inline-size', 160, 140);
   }
 
   &__text {

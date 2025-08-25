@@ -1,10 +1,4 @@
-import {
-  Component,
-  signal,
-  computed,
-  inject,
-  ChangeDetectionStrategy,
-} from '@angular/core';
+import { Component, signal, computed, inject, ChangeDetectionStrategy } from '@angular/core';
 import { TranslateModule } from '@ngx-translate/core';
 
 import { LanguageService } from '^services/language';
@@ -29,16 +23,12 @@ export class SelectLangs {
 
   readonly langs = computed(() => this.languageService.langs());
 
-  readonly currentLang = computed(() =>
-    this.langs().find((l) => l.value === this.languageService.currentLang()),
-  );
+  readonly currentLang = computed(() => this.langs().find((l) => l.value === this.languageService.currentLang()));
 
   toggleDropdown() {
     this.isOpen.update((v) => !v);
     if (this.isOpen()) {
-      const index = this.langs().findIndex(
-        (l) => l.value === this.languageService.currentLang(),
-      );
+      const index = this.langs().findIndex((l) => l.value === this.languageService.currentLang());
       this.focusedIndex.set(index > -1 ? index : 0);
     }
   }

@@ -1,10 +1,5 @@
 import { NgClass } from '@angular/common';
-import {
-  Component,
-  ChangeDetectionStrategy,
-  computed,
-  Input,
-} from '@angular/core';
+import { Component, ChangeDetectionStrategy, computed, Input } from '@angular/core';
 
 @Component({
   selector: 'loading',

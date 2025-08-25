@@ -1,5 +1,5 @@
-@use "styles/functions" as *;
-@use "styles/mixins" as *;
+@use 'styles/functions' as *;
+@use 'styles/mixins' as *;
 
 .otp-container {
   display: flex;
@@ -8,9 +8,9 @@
 }
 
 .otp-input {
-  @include fluid("inline-size", 60, 34, 1024);
-  @include fluid("block-size", 60, 34, 1024);
-  @include fluid("font-size", 24, 20, 1024);
+  @include fluid('inline-size', 60, 34, 1024);
+  @include fluid('block-size', 60, 34, 1024);
+  @include fluid('font-size', 24, 20, 1024);
 
   border: rem(1) solid var(--color-dark);
   border-radius: rem(10);
