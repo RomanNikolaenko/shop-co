@@ -2,6 +2,7 @@
   "name": "shop-co",
   "version": "0.0.0",
   "private": true,
+  "type": "module",
   "scripts": {
     "ng": "ng",
     "del": "git push origin --delete gh-pages",
@@ -21,16 +22,6 @@
     "lint:eslint": "eslint . --ext .ts,.js,.tsx,.jsx",
     "lint:eslint:fix": "eslint . --ext .ts,.js,.tsx,.jsx --fix",
     "lint:all": "npm run lint:prettier:fix && npm run lint:style:fix && npm run lint:eslint:fix"
-  },
-  "prettier": {
-    "overrides": [
-      {
-        "files": "*.html",
-        "options": {
-          "parser": "angular"
-        }
-      }
-    ]
   },
   "dependencies": {
     "@angular/animations": "^20.1.7",

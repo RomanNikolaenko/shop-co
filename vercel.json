@@ -2,7 +2,7 @@
   "version": 2,
   "public": true,
   "rewrites": [
-    { "source": "/(.*)", "destination": "/api/index.js" }
+    { "source": "/(.*)", "destination": "/api/index.ts" }
   ],
   "functions": {
     "api/index.js": {
