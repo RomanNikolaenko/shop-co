@@ -21,7 +21,7 @@ import { fromLonLat } from 'ol/proj';
   styleUrls: ['./map.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class MapWidget implements AfterViewInit {
+export class Map implements AfterViewInit {
   private readonly renderer = inject(Renderer2);
   private readonly platformId = inject(PLATFORM_ID);
   private readonly isBrowser = isPlatformBrowser(this.platformId);
