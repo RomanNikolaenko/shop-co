@@ -1,6 +1,0 @@
-[build]
-  command = "npm run build"
-  publish = "dist/shop-co/browser"
-
-[functions]
-  node_bundler = "esbuild"

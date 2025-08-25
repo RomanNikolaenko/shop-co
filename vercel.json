@@ -1,9 +1,9 @@
 {
   "version": 2,
   "public": true,
-  "rewrites": [{ "source": "/(.*)", "destination": "/api/ssr.js" }],
+  "rewrites": [{ "source": "/(.*)", "destination": "/api/index.js" }],
   "functions": {
-    "api/ssr.js": {
+    "api/index.js": {
       "includeFiles": "dist/shop-co/**"
     }
   }
