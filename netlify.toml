@@ -3,4 +3,4 @@
   publish = "dist/shop-co/browser"
 
 [functions]
-  directory = "netlify/functions"
+  node_bundler = "esbuild"

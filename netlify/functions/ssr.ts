@@ -1,27 +1,22 @@
-import path from 'path';
-import { fileURLToPath } from 'url';
+import { AngularAppEngine, createRequestHandler } from '@angular/ssr';
+import { getContext } from '@netlify/angular-runtime/context.mjs';
 
-import { Handler } from '@netlify/functions';
+const angularAppEngine = new AngularAppEngine();
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+export async function netlifyAppEngineHandler(request: Request): Promise<Response> {
+  const context = getContext();
 
-const server = await import(path.join(__dirname, '../../dist/shop-co/server/server.mjs'));
+  // Приклад API-ендпоінта:
+  // const pathname = new URL(request.url).pathname;
+  // if (pathname === '/api/hello') {
+  //   return Response.json({ message: 'Hello from the API' });
+  // }
 
-export const handler: Handler = async(event) => {
-  try {
-    const response = await server.default.handle(event);
+  const result = await angularAppEngine.handle(request, context);
+  return result || new Response('Not found', { status: 404 });
+}
 
-    return {
-      statusCode: response.statusCode || 200,
-      headers: response.headers,
-      body: response.body,
-    };
-  } catch (error) {
-    console.error('SSR error:', error);
-    return {
-      statusCode: 500,
-      body: 'Internal Server Error',
-    };
-  }
-};
+/**
+ * Цей handler використовується під час `ng build` і Netlify SSR
+ */
+export const reqHandler = createRequestHandler(netlifyAppEngineHandler);
