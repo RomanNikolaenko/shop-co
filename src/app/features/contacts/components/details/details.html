@@ -1,5 +1,5 @@
 <ul class="details">
-  @for (item of data; track $index) {
+  @for (item of data(); track $index) {
     @if (item.linked === 'phone') {
       <li class="details__item">
         <icon class="details__icon" name="call" role="img" aria-hidden="true" />
@@ -30,7 +30,7 @@
         </div>
       </li>
     }
-    @if (item.linked === false) {
+    @if (item.linked === undefined) {
       <li class="details__item">
         <icon class="details__icon" name="location" role="img" aria-hidden="true" />
         <div class="details__info">

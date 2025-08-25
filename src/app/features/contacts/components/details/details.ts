@@ -1,8 +1,11 @@
 import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, DestroyRef, inject, OnInit, signal } from '@angular/core';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { TranslateService } from '@ngx-translate/core';
+import { ContactsDetailsModel } from '^interfaces/contacts-details';
 
 import { Icon } from '^shared/components/icon/icon';
+import { startWith, switchMap } from 'rxjs';
 
 @Component({
   selector: 'app-details',
@@ -12,26 +15,43 @@ import { Icon } from '^shared/components/icon/icon';
   styleUrl: './details.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class Details {
+export class Details implements OnInit {
   private readonly translate = inject(TranslateService);
+  private readonly destroyRef = inject(DestroyRef);
 
-  protected data = [
-    {
-      title: this.translate.instant('contacts.call'),
-      link: '+1650-000-0000',
-      linked: 'phone',
-    },
-    {
-      title: this.translate.instant('contacts.mail'),
-      link: 'info@yourcompany.com',
-      linked: 'mail',
-    },
-    {
-      title: this.translate.instant('contacts.location'),
-      link: 'New Your NY 2011, USA',
-      linked: false,
-    },
-  ];
+  protected data = signal<Array<ContactsDetailsModel>>([]);
+
+  ngOnInit(): void {
+    this.translate.onLangChange.pipe(
+      startWith({ lang: this.translate.currentLang }),
+      switchMap(() =>
+        this.translate.get([
+          'contacts.call',
+          'contacts.mail',
+          'contacts.location',
+        ])
+      ),
+      takeUntilDestroyed(this.destroyRef)
+    ).subscribe((translations) => {
+      this.data.set([
+        {
+          title: translations['contacts.call'],
+          link: '+1650-000-0000',
+          linked: 'phone',
+        },
+        {
+          title: translations['contacts.mail'],
+          link: 'info@yourcompany.com',
+          linked: 'mail',
+        },
+        {
+          title: translations['contacts.location'],
+          link: 'New York NY 2011, USA',
+          linked: undefined,
+        },
+      ]);
+    });
+  }
 
   protected cleanPhone(phone: string): string {
     return phone.replace(/-/g, '');
