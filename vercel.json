@@ -5,7 +5,7 @@
     { "source": "/(.*)", "destination": "/api/index.ts" }
   ],
   "functions": {
-    "api/index.js": {
+    "api/index.ts": {
       "includeFiles": "dist/shop-co/**"
     }
   }
