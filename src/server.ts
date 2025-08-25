@@ -1,66 +1,18 @@
-import { join, dirname } from 'node:path';
-import { fileURLToPath } from 'node:url';
+// src/server.ts
+import { AngularAppEngine, createRequestHandler } from '@angular/ssr';
+import { getContext } from '@netlify/angular-runtime/context.mjs';
 
-import { AngularNodeAppEngine, createNodeRequestHandler, isMainModule, writeResponseToNodeResponse } from '@angular/ssr/node';
-import express, { static as expressStatic } from 'express';
+const angularAppEngine = new AngularAppEngine();
 
-// Отримуємо __dirname у ES модулях
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
+export async function netlifyAppEngineHandler(request: Request): Promise<Response> {
+  const context = getContext();
 
-const browserDistFolder = join(__dirname, '../browser');
+  // Якщо потрібно — тут API:
+  // const pathname = new URL(request.url).pathname;
+  // if (pathname === '/api/ping') return Response.json({ pong: true });
 
-const app = express();
-const angularApp = new AngularNodeAppEngine();
-
-/**
- * Приклад REST API endpoint
- */
-// app.get('/api/example', (req, res) => {
-//   res.json({ message: 'Hello from API!' });
-// });
-
-/**
- * Обслуговуємо статичні файли з папки browser
- */
-app.use(
-  expressStatic(browserDistFolder, {
-    maxAge: '1y',
-    index: false,
-    redirect: false,
-  }),
-);
-
-/**
- * Обробка всіх інших запитів через Angular SSR
- */
-app.use(async(req, res, next) => {
-  try {
-    const response = await angularApp.handle(req);
-    if (response) {
-      writeResponseToNodeResponse(response, res);
-    } else {
-      next();
-    }
-  } catch (err) {
-    next(err);
-  }
-});
-
-/**
- * Запуск сервера, якщо це головний модуль
- */
-if (isMainModule(import.meta.url)) {
-  const port = process.env['PORT'] || 4000;
-  app.listen(port, (error) => {
-    if (error) {
-      throw error;
-    }
-    console.log(`Node Express server listening on http://localhost:${port}`);
-  });
+  const result = await angularAppEngine.handle(request, context);
+  return result || new Response('Not found', { status: 404 });
 }
 
-/**
- * Експорт обробника запитів для хмарних функцій, Vercel, Firebase тощо
- */
-export default createNodeRequestHandler(app);
+export const reqHandler = createRequestHandler(netlifyAppEngineHandler);
