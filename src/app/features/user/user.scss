@@ -32,48 +32,48 @@
       &.login__bg {
         background-image: url('../../../assets/images/auth/login@1x.webp');
 
-        @media (resolution >= 2dppx) {
-          background-image: url('../../../assets/images/auth/login@1x.webp');
+        @include screen('resolution >= 2dppx' and 'resolution<3dppx') {
+          background-image: url('../../../assets/images/auth/login@2x.webp');
         }
 
-        @media (resolution >= 3dppx) {
-          background-image: url('../../../assets/images/auth/login@1x.webp');
+        @include screen('resolution >= 3dppx') {
+          background-image: url('../../../assets/images/auth/login@3x.webp');
         }
       }
 
       &.register__bg {
         background-image: url('../../../assets/images/auth/create@1x.webp');
 
-        @media (resolution >= 2dppx) {
-          background-image: url('../../../assets/images/auth/create@1x.webp');
+        @include screen('resolution >= 2dppx' and 'resolution<3dppx') {
+          background-image: url('../../../assets/images/auth/create@2x.webp');
         }
 
-        @media (resolution >= 3dppx) {
-          background-image: url('../../../assets/images/auth/create@1x.webp');
+        @include screen('resolution >= 3dppx') {
+          background-image: url('../../../assets/images/auth/create@3x.webp');
         }
       }
 
       &.forgot__bg {
         background-image: url('../../../assets/images/auth/forgot@1x.webp');
 
-        @media (resolution >= 2dppx) {
-          background-image: url('../../../assets/images/auth/forgot@1x.webp');
+        @include screen('resolution >= 2dppx' and 'resolution<3dppx') {
+          background-image: url('../../../assets/images/auth/forgot@2x.webp');
         }
 
-        @media (resolution >= 3dppx) {
-          background-image: url('../../../assets/images/auth/forgot@1x.webp');
+        @include screen('resolution >= 3dppx') {
+          background-image: url('../../../assets/images/auth/forgot@3x.webp');
         }
       }
 
       &.otp__bg {
         background-image: url('../../../assets/images/auth/otp@1x.webp');
 
-        @media (resolution >= 2dppx) {
-          background-image: url('../../../assets/images/auth/otp@1x.webp');
+        @include screen('resolution >= 2dppx' and 'resolution<3dppx') {
+          background-image: url('../../../assets/images/auth/otp@2x.webp');
         }
 
-        @media (resolution >= 3dppx) {
-          background-image: url('../../../assets/images/auth/otp@1x.webp');
+        @include screen('resolution >= 3dppx') {
+          background-image: url('../../../assets/images/auth/otp@3x.webp');
         }
       }
     }

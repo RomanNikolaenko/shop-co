@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { TranslateModule } from '@ngx-translate/core';
 
 import { BrowseByDressStyleModel } from '^interfaces/browse-by-dress-style';
 import { CardModel } from '^interfaces/card';
@@ -9,7 +10,6 @@ import { BrowseByDressStyle } from './components/browse-by-dress-style/browse-by
 import { Company } from './components/company/company';
 import { Hero } from './components/hero/hero';
 import { Slider } from './components/slider/slider';
-import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-home',

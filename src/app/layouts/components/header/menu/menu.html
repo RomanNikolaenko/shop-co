@@ -1,17 +1,20 @@
 <nav (click)="onBackgroundClick($event)" attr.aria-label="{{ 'header.ariaLabel' | translate }}" class="nav">
   <ul class="nav__list">
     @if (!showLangSelect()) {
-    <li class="nav__item nav__item-select">
-      <select-langs />
-    </li>
+      <li class="nav__item nav__item-select">
+        <select-langs />
+      </li>
     }
     @for (item of data; track $index) {
-    <li class="nav__item">
-      <a [routerLink]="item.url" [tabIndex]="isCurrentRoute(item.url) ? '-1' : '0'" routerLinkActive="nav__link--active"
-        class="nav__link text-decoration">
-        <span>{{item.title}}</span>
-      </a>
-    </li>
+      <li class="nav__item">
+        <a
+          [routerLink]="item.url"
+          [tabIndex]="isCurrentRoute(item.url) ? '-1' : '0'"
+          routerLinkActive="nav__link--active"
+          class="nav__link text-decoration">
+          <span>{{ item.title }}</span>
+        </a>
+      </li>
     }
   </ul>
 </nav>

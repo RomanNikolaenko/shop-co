@@ -1,15 +1,15 @@
 import { isPlatformBrowser } from '@angular/common';
-import { ChangeDetectionStrategy, Component, computed, DestroyRef, inject, PLATFORM_ID, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, DestroyRef, inject, PLATFORM_ID, signal } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { RouterModule } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
 import { fromEvent, startWith, map } from 'rxjs';
 
 import { STATIC_ROUTES } from '^core/static-routes';
+import { MenuModel } from '^interfaces/menu';
 import { IsCurrentRouteService } from '^services/is-current-route';
 import { UiStateService } from '^services/ui-state';
 import { SelectLangs } from '^shared/components/select-langs/select-langs';
-import { MenuModel } from '^interfaces/menu';
 
 @Component({
   selector: 'app-menu',
@@ -34,15 +34,15 @@ export class Menu {
   protected showBreakpoint = 450;
 
   protected data: MenuModel[] = [
-      {
-        url: this.STATIC_ROUTES.ABOUT.RouterLink,
-        title: 'About',
-      },
-      {
-        url: this.STATIC_ROUTES.CONTACTS.RouterLink,
-        title: 'Contacts',
-      }
-    ];
+    {
+      url: this.STATIC_ROUTES.ABOUT.RouterLink,
+      title: 'About',
+    },
+    {
+      url: this.STATIC_ROUTES.CONTACTS.RouterLink,
+      title: 'Contacts',
+    },
+  ];
 
   ngOnInit(): void {
     if (!this.isBrowser) return;
@@ -59,7 +59,7 @@ export class Menu {
   }
 
   protected isCurrentRoute = (path: string) => {
-    return this.currentRoute() === path
+    return this.currentRoute() === path;
   };
 
   protected onBackgroundClick(event: MouseEvent): void {

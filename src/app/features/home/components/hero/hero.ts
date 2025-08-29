@@ -17,7 +17,7 @@ export class Hero implements AfterViewInit {
   private readonly destroyRef = inject(DestroyRef);
 
   @ViewChild('statsBlock') statsBlock!: ElementRef;
-  
+
   protected STATIC_ROUTES = STATIC_ROUTES;
 
   ngAfterViewInit(): void {

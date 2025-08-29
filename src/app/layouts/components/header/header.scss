@@ -31,7 +31,7 @@
       padding-block: rem(18);
     }
 
-    @media (min-width: #{$min-width}) and (max-width: #{$max-width}) {
+    @include screen('min-width: #{$min-width}) and (max-width: #{$max-width}') {
       block-size: rem(63);
     }
   }
@@ -46,8 +46,8 @@
 
   &__logo {
     display: inline-flex;
-    align-items: center;
     flex: 0 0 auto;
+    align-items: center;
 
     @include fluid('inline-size', 160, 100);
   }
@@ -56,10 +56,6 @@
     position: relative;
     z-index: 20;
     transition: none;
-
-    @media (min-width: #{$min-width}) and (max-width: #{$max-width}) {
-      top: rem(63);
-    }
 
     @include tablet {
       visibility: hidden;
@@ -76,6 +72,10 @@
 
     @include mobile-s {
       top: rem(48);
+    }
+
+    @include screen('min-width: #{$min-width}) and (max-width: #{$max-width}') {
+      top: rem(63);
     }
 
     &--active {

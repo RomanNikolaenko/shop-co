@@ -1,8 +1,8 @@
-import { ElementRef, Injectable, inject, PLATFORM_ID, DestroyRef } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
+import { ElementRef, Injectable, inject, PLATFORM_ID, DestroyRef } from '@angular/core';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { fromEvent, Observable, of } from 'rxjs';
 import { take } from 'rxjs/operators';
-import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
 @Injectable({
   providedIn: 'root',
@@ -13,17 +13,11 @@ export class CounterService {
 
   private duration = 2000;
 
-  startCountingWhenVisible(
-    container: ElementRef,
-    destroyRef: DestroyRef,
-    selector?: string,
-    threshold = 0.5
-  ): void {
+  startCountingWhenVisible(container: ElementRef, destroyRef: DestroyRef, selector?: string, threshold = 0.5): void {
     if (!this.isBrowser) return;
 
-    const start$: Observable<unknown> = document.readyState === 'complete'
-      ? of(null)
-      : fromEvent(window, 'load').pipe(take(1), takeUntilDestroyed(destroyRef));
+    const start$: Observable<unknown> =
+      document.readyState === 'complete' ? of(null) : fromEvent(window, 'load').pipe(take(1), takeUntilDestroyed(destroyRef));
 
     start$.subscribe({
       next: () => {
@@ -45,15 +39,14 @@ export class CounterService {
               observer.disconnect();
             }
           },
-          { threshold }
+          { threshold },
         );
 
         el.querySelectorAll(selector).forEach((counterEl: HTMLElement) => {
           observer.observe(counterEl);
         });
-      }
+      },
     });
-
   }
 
   private animateCounters(counters: NodeListOf<HTMLElement>) {
