@@ -63,4 +63,4 @@ if (isMainModule(import.meta.url)) {
 /**
  * Експорт обробника запитів для хмарних функцій, Vercel, Firebase тощо
  */
-export default createNodeRequestHandler(app);
+export const reqHandler = createNodeRequestHandler(app);

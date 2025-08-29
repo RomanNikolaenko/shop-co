@@ -2,6 +2,7 @@
 
 <app-company />
 
+@defer (on timer(200ms); prefetch on idle) {
 <products title="NEW ARRIVALS" [data]="data" />
 
 <products title="Top selling" [data]="data" />
@@ -9,3 +10,4 @@
 <browse-by-dress-style [data]="dataBrowse" />
 
 <slider />
+}

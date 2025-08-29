@@ -3,19 +3,22 @@ import { RouterModule } from '@angular/router';
 
 import { Footer } from './components/footer/footer';
 import { Header } from './components/header/header';
+import { CommonModule } from '@angular/common';
 
 @Component({
   standalone: true,
   selector: 'app-main-layout',
-  imports: [RouterModule, Header, Footer],
+  imports: [CommonModule, RouterModule, Header, Footer],
   template: `
     <app-header></app-header>
     <main class="wrapper">
       <router-outlet />
     </main>
-    <app-footer></app-footer>
+    @defer (on timer(500ms); prefetch on idle) {
+      <app-footer></app-footer>
+    }
   `,
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: { class: 'wrapper' },
 })
-export class MainLayout {}
+export class MainLayout { }
