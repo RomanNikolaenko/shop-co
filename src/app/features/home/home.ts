@@ -1,3 +1,4 @@
+import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 
 import { BrowseByDressStyleModel } from '^interfaces/browse-by-dress-style';
@@ -8,7 +9,6 @@ import { BrowseByDressStyle } from './components/browse-by-dress-style/browse-by
 import { Company } from './components/company/company';
 import { Hero } from './components/hero/hero';
 import { Slider } from './components/slider/slider';
-import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-home',

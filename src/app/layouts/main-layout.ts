@@ -1,9 +1,9 @@
+import { CommonModule } from '@angular/common';
 import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
 import { Footer } from './components/footer/footer';
 import { Header } from './components/header/header';
-import { CommonModule } from '@angular/common';
 
 @Component({
   standalone: true,
@@ -21,4 +21,4 @@ import { CommonModule } from '@angular/common';
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: { class: 'wrapper' },
 })
-export class MainLayout { }
+export class MainLayout {}

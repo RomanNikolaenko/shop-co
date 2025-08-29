@@ -33,27 +33,29 @@
       }
     </form>
 
-    @if (showSearchResults()) {
-      <div [@flyInBottom]="screenWidth() >= 768 ? 'in' : null" class="search__results">
-        <h3 class="search__results-title">
-          {{ 'search.results' | translate }}
-        </h3>
-        <div class="search__results-wrap">
-          @if (filteredProducts.length > 0) {
-            <ul class="search__results-list">
-              @for (product of filteredProducts; track product) {
-                <li class="search__results-item">
-                  <a [routerLink]="[STATIC_ROUTES.HOME.RouterLink]" class="search__results-link text-decoration"
-                    ><span>{{ product }}</span></a
-                  >
-                </li>
-              }
-            </ul>
-          } @else {
-            <p>{{ 'search.noResults' | translate }}</p>
-          }
+    @defer (on timer(500ms); prefetch on idle) {
+      @if (showSearchResults()) {
+        <div [@flyInBottom]="screenWidth() >= 768 ? 'in' : null" class="search__results">
+          <h3 class="search__results-title">
+            {{ 'search.results' | translate }}
+          </h3>
+          <div class="search__results-wrap">
+            @if (filteredProducts.length > 0) {
+              <ul class="search__results-list">
+                @for (product of filteredProducts; track product) {
+                  <li class="search__results-item">
+                    <a [routerLink]="[STATIC_ROUTES.HOME.RouterLink]" class="search__results-link text-decoration"
+                      ><span>{{ product }}</span></a
+                    >
+                  </li>
+                }
+              </ul>
+            } @else {
+              <p>{{ 'search.noResults' | translate }}</p>
+            }
+          </div>
         </div>
-      </div>
+      }
     }
   </div>
 </section>
