@@ -80,7 +80,7 @@
       inline-size: rem(76);
     }
 
-    @include screen('resolution>=2dppx' and 'resolution<3dppx') {
+    @include screen('resolution>=2dppx) and (resolution<3dppx') {
       background-image: url('../../../../../assets/images/hero/hero@2x.webp');
     }
 
