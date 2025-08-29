@@ -45,7 +45,8 @@
   }
 
   &__logo {
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
     flex: 0 0 auto;
 
     @include fluid('inline-size', 160, 100);
@@ -55,15 +56,6 @@
     position: relative;
     z-index: 20;
     transition: none;
-
-    &--active {
-      visibility: visible;
-      opacity: 1;
-    }
-
-    &--transition {
-      transition: all var(--transition-duration) var(--transition-timing-function);
-    }
 
     @media (min-width: #{$min-width}) and (max-width: #{$max-width}) {
       top: rem(63);
@@ -84,6 +76,15 @@
 
     @include mobile-s {
       top: rem(48);
+    }
+
+    &--active {
+      visibility: visible;
+      opacity: 1;
+    }
+
+    &--transition {
+      transition: all var(--transition-duration) var(--transition-timing-function);
     }
   }
 

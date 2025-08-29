@@ -114,5 +114,15 @@
     "location": "Location",
     "terms": "I agree all the terms and conditions",
     "map": "Unlock the map"
+  },
+  "sections": {
+    "newArrivals": "New Arrivals",
+    "topSelling": "Top selling",
+    "browseByDressStyle": "Browse by dress style"
+  },
+  "count": {
+    "internationalBrands": "International Brands",
+    "highQualityProducts": "High-Quality Products",
+    "happyCustomers": "Happy Customers"
   }
 }

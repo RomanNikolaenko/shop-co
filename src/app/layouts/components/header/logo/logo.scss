@@ -1,19 +1,16 @@
 @use 'styles/mixins' as *;
 
 .logo {
-  display: flex;
+  position: relative;
+  display: inline-flex;
   align-items: center;
 
-  &__link {
-    position: relative;
-    display: inline-flex;
-    align-items: center;
+  @include interactive {
+    color: var(--color-gray-alt);
+  }
 
-    &:where([href]) {
-      @include interactive {
-        color: var(--color-gray-alt);
-      }
-    }
+  &--disabled {
+    pointer-events: none;
   }
 
   &__icon {

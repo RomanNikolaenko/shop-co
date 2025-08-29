@@ -9,6 +9,7 @@ import { STATIC_ROUTES } from '^core/static-routes';
 import { IsCurrentRouteService } from '^services/is-current-route';
 import { UiStateService } from '^services/ui-state';
 import { SelectLangs } from '^shared/components/select-langs/select-langs';
+import { MenuModel } from '^interfaces/menu';
 
 @Component({
   selector: 'app-menu',
@@ -32,9 +33,16 @@ export class Menu {
   protected showLangSelect = signal(true);
   protected showBreakpoint = 450;
 
-  protected isAbout = computed(() => this.currentRoute() === STATIC_ROUTES.ABOUT.RouterLink);
-
-  protected isContact = computed(() => this.currentRoute() === STATIC_ROUTES.CONTACTS.RouterLink);
+  protected data: MenuModel[] = [
+      {
+        url: this.STATIC_ROUTES.ABOUT.RouterLink,
+        title: 'About',
+      },
+      {
+        url: this.STATIC_ROUTES.CONTACTS.RouterLink,
+        title: 'Contacts',
+      }
+    ];
 
   ngOnInit(): void {
     if (!this.isBrowser) return;
@@ -49,6 +57,10 @@ export class Menu {
         this.showLangSelect.set(value);
       });
   }
+
+  protected isCurrentRoute = (path: string) => {
+    return this.currentRoute() === path
+  };
 
   protected onBackgroundClick(event: MouseEvent): void {
     if ((event.target as HTMLElement).classList.contains('nav')) {

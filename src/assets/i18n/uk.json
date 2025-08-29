@@ -114,5 +114,15 @@
     "location": "Розташування",
     "terms": "Я погоджуюся з усіма умовами та положеннями",
     "map": "Розблокувати мату"
+  },
+  "sections": {
+    "newArrivals": "Нові надходження",
+    "topSelling": "Найпопулярніші",
+    "browseByDressStyle": "Перегляд за стилем одягу"
+  },
+  "count": {
+    "internationalBrands": "Міжнародні бренди",
+    "highQualityProducts": "Високоякісні продукти",
+    "happyCustomers": "Задоволені клієнти"
   }
 }

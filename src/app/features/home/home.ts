@@ -9,11 +9,12 @@ import { BrowseByDressStyle } from './components/browse-by-dress-style/browse-by
 import { Company } from './components/company/company';
 import { Hero } from './components/hero/hero';
 import { Slider } from './components/slider/slider';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule, Hero, Company, Products, BrowseByDressStyle, Slider],
+  imports: [CommonModule, Hero, Company, Products, BrowseByDressStyle, Slider, TranslateModule],
   templateUrl: './home.html',
   styleUrl: './home.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

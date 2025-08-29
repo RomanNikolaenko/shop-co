@@ -1,32 +1,22 @@
 <div class="actions">
-  <button
-    (click)="toggleSearch()"
-    [attr.aria-expanded]="showFormSearch()"
-    aria-controls="search-section"
-    class="actions__search search__btn"
-    type="button">
+  <button (click)="toggleSearch()" [attr.aria-expanded]="showFormSearch()" aria-controls="search-section"
+    class="actions__search search__btn" type="button">
     <span class="visually-hidden">{{ 'search.open' | translate }}</span>
     <icon name="search" role="img" aria-hidden="true" class="actions__icon"></icon>
   </button>
 
-  @if (isCart()) {
-    <span class="actions__link actions__link--active">
-      <icon name="cart" role="img" aria-hidden="true" class="actions__icon"></icon>
-      <span class="visually-hidden">Cart</span>
-    </span>
-  } @else {
-    <a [routerLink]="[STATIC_ROUTES.SHOP.CH.CART.RouterLink]" class="actions__link">
-      <icon name="cart" role="img" aria-hidden="true" class="actions__icon"></icon>
-      <span class="visually-hidden">Cart</span>
-    </a>
-  }
+  <a [routerLink]="[STATIC_ROUTES.SHOP.CH.CART.RouterLink]" [tabIndex]="isCart() ? '-1' : '0'" class="actions__link">
+    <icon name="cart" role="img" aria-hidden="true" class="actions__icon"></icon>
+    <span class="visually-hidden">Cart</span>
+  </a>
 
-  <a [routerLink]="[STATIC_ROUTES.USER.CH.LOGIN.RouterLink]" routerLinkActive="actions__link--active" class="actions__link">
+  <a [routerLink]="[STATIC_ROUTES.USER.CH.LOGIN.RouterLink]" routerLinkActive="actions__link--active"
+    class="actions__link">
     <icon name="login" role="img" aria-hidden="true" class="actions__icon"></icon>
     <span class="visually-hidden">Authorization</span>
   </a>
 
   @if (!showLangSelect()) {
-    <select-langs />
+  <select-langs />
   }
 </div>

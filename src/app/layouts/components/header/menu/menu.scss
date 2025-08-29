@@ -40,6 +40,8 @@
     }
 
     &--active {
+      pointer-events: none;
+      
       span {
         background-image: linear-gradient(to right, currentcolor, currentcolor);
         background-repeat: no-repeat;
