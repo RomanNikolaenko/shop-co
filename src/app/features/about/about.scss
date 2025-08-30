@@ -1,0 +1,98 @@
+@use 'styles/mixins' as *;
+@use 'styles/functions' as *;
+@use 'styles/media' as *;
+
+.about {
+  h1,
+  h2,
+  h3 {
+    margin-block: 0 1rem;
+    text-wrap: balance;
+  }
+
+  h1 {
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+
+  h2 {
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+
+  h3 {
+    font-weight: 500;
+  }
+
+  ul:not([class]) {
+    display: grid;
+    gap: rem(12);
+    margin-block: 0 0.6rem;
+    padding-left: 1.5rem;
+    list-style-type: disc;
+
+    &:last-child {
+      margin-block: 0;
+    }
+  }
+
+  ul:not([class]),
+  p:not([class]) {
+    @include fluid('font-size', 20, 16);
+  }
+
+  &__container {
+    display: grid;
+
+    @include fluid('gap', 60, 24);
+    @include fluid('margin-block-start', 70, 30);
+  }
+}
+
+.block-benefits {
+  &__features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(rem(280), 1fr));
+
+    @include fluid('row-gap', 24, 20);
+    @include fluid('column-gap', 32, 20);
+  }
+
+  &__feature {
+    display: grid;
+    gap: 0;
+    grid-template-rows: subgrid;
+    grid-row: span 2;
+    box-shadow: 0 rem(2) rem(2) rgb(0 0 0 / 5%);
+    padding: rem(32) rem(20);
+    border-radius: rem(8);
+    text-align: center;
+    text-wrap: balance;
+    background-color: var(--color-gray);
+  }
+}
+
+.block-cta {
+  $width: rem(500);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: rem(12);
+  inline-size: 100%;
+  border-radius: rem(12);
+  text-align: center;
+  background-color: var(--color-gray);
+
+  @include fluid('padding-block', 40, 24);
+  @include fluid('padding-inline', 24, 16);
+
+  &__btn {
+    min-inline-size: rem(320);
+    margin-block-start: rem(12);
+
+    @include screen('width < #{$width}') {
+      min-inline-size: 100%;
+    }
+  }
+}

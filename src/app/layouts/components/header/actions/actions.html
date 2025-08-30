@@ -9,7 +9,11 @@
     <icon name="search" role="img" aria-hidden="true" class="actions__icon"></icon>
   </button>
 
-  <a [routerLink]="[STATIC_ROUTES.SHOP.CH.CART.RouterLink]" routerLinkActive="actions__link--active" [tabIndex]="isCart() ? '-1' : '0'" class="actions__link">
+  <a
+    [routerLink]="[STATIC_ROUTES.SHOP.CH.CART.RouterLink]"
+    routerLinkActive="actions__link--active"
+    [tabIndex]="isCart() ? '-1' : '0'"
+    class="actions__link">
     <icon name="cart" role="img" aria-hidden="true" class="actions__icon"></icon>
     <span class="visually-hidden">Cart</span>
   </a>

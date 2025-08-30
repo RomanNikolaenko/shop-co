@@ -124,5 +124,47 @@
     "internationalBrands": "International Brands",
     "highQualityProducts": "High-Quality Products",
     "happyCustomers": "Happy Customers"
+  },
+  "about": {
+    "companyName": "About ShopCo",
+    "intro": {
+      "title": "About ShopCo",
+      "description": "ShopCo is an online store offering modern products for home, office, and personal use. We provide customers with easy access to certified products at fair prices with quality guarantees."
+    },
+    "history": {
+      "title": "Our History",
+      "description": "It all began in 2020 with a small warehouse and a big dream to make online shopping as simple as possible. Since then, we have grown from a startup to a large company serving thousands of customers every month."
+    },
+    "mission": {
+      "title": "Mission and Values",
+      "values": [
+        "Transparency and honesty in operations",
+        "Respect for every customer",
+        "Continuous service improvement",
+        "24/7 fast support and assistance"
+      ]
+    },
+    "benefits": {
+      "title": "Why Choose Us",
+      "features": [
+        {
+          "title": "100% Quality Guarantee",
+          "description": "We only work with trusted suppliers and certified products."
+        },
+        {
+          "title": "Over 30,000 Customers",
+          "description": "We take pride in a high level of satisfaction and repeat customers."
+        },
+        {
+          "title": "Awards",
+          "description": "Awarded the 'Best Online Store in Ukraine 2024'."
+        }
+      ]
+    },
+    "cta": {
+      "title": "Ready to Shop?",
+      "description": "Go to our product catalog or contact our managers right now!",
+      "button": "Go to Catalog"
+    }
   }
 }

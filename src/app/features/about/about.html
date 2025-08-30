@@ -1,1 +1,55 @@
-<p>about works!</p>
+<section class="about">
+  <div class="about__container container">
+    <!-- Назва та сфера діяльності -->
+    <div class="about__block block-intro">
+      <h1>{{ 'about.companyName' | translate }}</h1>
+      <p>
+        {{ 'about.intro.description' | translate }}
+      </p>
+    </div>
+
+    <!-- Історія бізнесу -->
+    <div class="about__block block-history">
+      <h2>{{ 'about.history.title' | translate }}</h2>
+      <p>
+        {{ 'about.history.description' | translate }}
+      </p>
+    </div>
+
+    <!-- Місія та цінності -->
+    <div class="about__block block-mission">
+      <h2>{{ 'about.mission.title' | translate }}</h2>
+      <ul>
+        @for (value of 'about.mission.values' | translate; track $index) {
+          <li>{{ value }}</li>
+        }
+      </ul>
+    </div>
+
+    <!-- Переваги -->
+    <div class="about__block block-benefits">
+      <h2>{{ 'about.benefits.title' | translate }}</h2>
+      <ul class="block-benefits__features">
+        @for (feature of 'about.benefits.features' | translate; track $index) {
+          <li class="block-benefits__feature">
+            <h3>{{ feature.title }}</h3>
+            <p>{{ feature.description }}</p>
+          </li>
+        }
+      </ul>
+    </div>
+
+    @defer (on timer(200ms); prefetch on idle) {
+      <slider class="about__block block-slider" />
+
+      <!-- CTA -->
+      <div class="about__block block-cta">
+        <h2>{{ 'about.cta.title' | translate }}</h2>
+        <p>{{ 'about.cta.description' | translate }}</p>
+        <a [routerLink]="'/'" class="block-cta__btn btn btn__black">
+          <span class="btn__text">{{ 'about.cta.button' | translate }}</span>
+        </a>
+      </div>
+    }
+  </div>
+</section>

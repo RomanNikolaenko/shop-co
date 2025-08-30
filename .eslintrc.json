@@ -23,7 +23,7 @@
     "ecmaVersion": "latest",
     "sourceType": "module",
     "project": ["./tsconfig.app.json", "./tsconfig.spec.json"],
-    "tsconfigRootDir": "./"
+    "tsconfigRootDir": "D:/Works/Shop.Co"
   },
   "plugins": ["@typescript-eslint", "unused-imports", "import"],
   "overrides": [
