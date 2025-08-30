@@ -65,7 +65,7 @@
     grid-row: span 2;
     box-shadow: 0 rem(2) rem(2) rgb(0 0 0 / 5%);
     padding: rem(32) rem(20);
-    border-radius: rem(8);
+    border-radius: rem(20);
     text-align: center;
     text-wrap: balance;
     background-color: var(--color-gray);
@@ -80,7 +80,7 @@
   align-items: center;
   gap: rem(12);
   inline-size: 100%;
-  border-radius: rem(12);
+  border-radius: rem(20);
   text-align: center;
   background-color: var(--color-gray);
 
